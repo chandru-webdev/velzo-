@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELZO</title>
+    <link rel="stylesheet" href="/css/style copy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Page Title */
+        h2 {
+            font-size: 32px;
+            margin: 20px 0;
+        }
+
+        /* Wishlist container */
+        #wishlistContainer.product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            padding: 0 30px 40px;
+        }
+
+        /* Product Card */
+        .pro {
+            width: 40%;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.10);
+            transition: 0.3s;
+            position: relative;
+            background: #fff;
+        }
+
+        .pro:hover {
+            border: 1px solid #ccc;
+        }
+
+        /* Image */
+        .pro img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Description */
+        .des {
+            margin-top: 10px;
+        }
+
+        .des span {
+            font-size: 14px;
+            color: #666;
+            justify-content: start;
+        }
+
+        .des h5 {
+            font-size: 18px;
+            margin-top: 6px;
+        }
+
+        .des h4 {
+            margin-top: 6px;
+            font-size: 19px;
+            font-weight: bold;
+            color: #088178;
+        }
+
+        /* Buttons */
+        .remove-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            font-size: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .add-cart-btn {
+            background: #088178;
+            color: white;
+        }
+
+        .add-cart-btn:hover {
+            background: #06665f;
+        }
+
+        .remove-btn {
+            background: transparent;
+            color: white;
+        }
+
+        .remove-btn:hover {
+            background: transparent;
+        }
+
+        /* Remove animation */
+        .remove-anim {
+            animation: fadeOutScale 0.4s forwards ease-in-out;
+        }
+
+        @keyframes fadeOutScale {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: scale(0.6);
+            }
+        }
+
+        /* Empty Message */
+        #wishlistContainer h3 {
+            text-align: center;
+            color: #333;
+            font-size: 22px;
+            grid-column: 1 / -1;
+            padding: 40px 0;
+        }
+
+        /* Updated Wishlist container for a centered, vertical layout */
+        #wishlistContainer.product-container {
+            display: grid;
+            /* Forces the grid to create columns that fit the vertical look */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px 30px 40px;
+
+        }
+
+        /* Updated Product Card for vertical alignment */
+        .pro {
+            /* Set a specific width to force the vertical look */
+            width: 330px;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.10);
+            transition: 0.3s;
+            position: relative;
+            background: #fff;
+            /* Ensures items inside the card stack vertically */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Centers items horizontally within the card */
+            text-align: center;
+            /* Centers text */
+        }
+
+
+
+        /* Image styling for vertical card */
+        .pro img {
+            width: 100%;
+            /* Set a height that makes sense for a vertical card */
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* Description styling */
+        .des {
+            margin-top: 15px;
+            width: 100%;
+            /* Take full width of card */
+        }
+
+        /* Specific text styling */
+        .des h5 {
+            font-size: 16px;
+            /* Slightly smaller for card size */
+            margin: 5px 0;
+        }
+
+        /* Styling the buttons to look like the image */
+        .add-cart-btn,
+        .remove-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* --- Optimized Grid for 5 Items per Row --- */
+        #wishlistContainer.product-container {
+            display: grid;
+            /* Forces exactly 5 equal-width columns. 
+       `1fr` means one fractional unit of the available space.                
+    */
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            /* Reduced gap to fit 5 items comfortably */
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* --- Vertical Product Card Styling --- */
+        .pro {
+            /* Auto width allows grid to define width */
+            width: 100%;
+            padding: 10px;
+            /* Reduced padding for compact look */
+            cursor: pointer;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            position: relative;
+            background: #fff;
+            border: 1px solid #eee;
+            /* Added light border for definition */
+
+            /* Ensures items inside stack vertically and center */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            height: 345px;
+        }
+
+        /* --- Image Styling --- */
+        .pro img {
+            width: 100%;
+            /* Height adjusted to look good in a narrow vertical card */
+            height: 220px;
+            object-fit: cover;
+        }
+
+        /* --- Description & Text Styling --- */
+        .des {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .des span {
+            font-size: 12px;
+            /* Smaller brand name */
+            color: #777;
+        }
+
+        .des h5 {
+            font-size: 14px;
+            /* Title size */
+            margin: 4px 0;
+            /* Optional: Prevents title from taking too many lines */
+            height: 32px;
+            overflow: hidden;
+        }
+
+        .des h4 {
+            margin-top: 4px;
+            font-size: 15px;
+            /* Price size */
+            color: #088178;
+        }
+
+        /* --- Buttons Styling --- */
+        .remove-btn {
+            width: 10px;
+            margin-top: 2px;
+            padding: 8px;
+            font-size: 13px;
+            border-radius: 4px;
+            position: absolute;
+            margin-left: 182px;
+        }
+
+        .add-cart-btn {
+            display: none;
+        }
+
+        /* --- 📱 Responsiveness (Mobile Fix) --- */
+        @media (max-width: 1024px) {
+            #wishlistContainer.product-container {
+                grid-template-columns: repeat(3, 1fr);
+                /* 3 items on tablets */
+            }
+        }
+
+        @media (max-width: 600px) {
+            #wishlistContainer.product-container {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 items on mobile */
+                gap: 10px;
+            }
+        }
+
+        /* =========================
+   📱 MOBILE WISHLIST STYLE
+   ========================= */
+
+        @media (max-width: 768px) {
+
+            h2 {
+                font-size: 22px;
+                text-align: center;
+                margin: 12px 0;
+            }
+
+            #wishlistContainer.product-container {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 cards per row */
+                gap: 12px;
+                padding: 10px;
+            }
+
+            .pro {
+                padding: 4px;
+                /* border-radius: 6px; */
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                height: 255px;
+            }
+
+            .pro img {
+                height: 170px;
+                border-radius: 6px;
+            }
+
+            .des span {
+                font-size: 11px;
+                color: #777;
+            }
+
+            .des h5 {
+                font-size: 13px;
+                line-height: 1.3;
+                margin: 4px 0;
+                height: 20px;
+                overflow: hidden;
+            }
+
+            .des h4 {
+                font-size: 14px;
+                margin-top: 3px;
+                margin-bottom: 5px;
+            }
+
+            .des del {
+                font-size: 12px;
+                color: #888;
+            }
+
+            .add-cart-btn {
+                padding: 7px;
+                font-size: 12px;
+                border-radius: 4px;
+            }
+
+            .remove-btn {
+                padding: 6px;
+                font-size: 14px;
+                margin-top: 1px;
+                border-radius: 4px;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                right: 13px;
+                background: transparent;
+                color: red;
+                margin-right: 5px;
+            }
+
+            .des h5 {
+                font-size: 14px;
+                margin: 4px 0;
+                height: 22px;
+                overflow: hidden;
+                font-size: 13px;
+            }
+        }
+
+        /* 📱 Small Phones */
+        @media (max-width: 480px) {
+
+            #wishlistContainer.product-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .pro img {
+                height: 150px;
+                object-fit: contain;
+            }
+
+            .add-cart-btn {
+                font-size: 11px;
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <marquee bgcolor="silver" loop="-1" scrollamount="5" width="100%">
+        Get EXTRA 15% OFF On Orders Above $1299* Code:FEST15 | Get EXTRA 15% OFF On Orders Above $1999* Code:FEST20
+    </marquee>
+    <header class="main-header">
+        <div class="container main-header-content">
+            <a href="#" class="macy-logo">VELZO</a>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for products...">
+            </div>
+
+            <div id="searchResults" class="results-box"></div>
+            <div class="account-actions">
+                <a href="#" id="profileLinkPlaceholder" title="Profile/Login">
+                    <i class="fa-solid fa-user" id="profileIconStarter"></i>
+                </a>
+
+                <div id="profileComponentPlaceholder"></div>
+
+                <a href="/html/cart.html" title="Cart" class="cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-badge" class="cart-badge">0</span>
+                </a>
+                <a href="/html/wishlike.html" class="wishlist-btn-nav active" title="Wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <span id="wishlist-badge" class="wishlist-badge">0</span>
+                </a>
+                <!-- Sidebar Open Button -->
+                <div class="menu-btn" id="openSidebar">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+        </div>
+
+
+    </header>
+    <div class="scrolling-container move">
+        <div class="marquee">
+            <div class="logo-track">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/insta/1.jpg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/tmen4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/weman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/tweman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/tmen2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/weman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/tmen3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/weman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/tmen1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/tmen4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/tweman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/tmen1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/tweman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/tmen2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/tweman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+            </div>
+        </div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" id="closeSidebar">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li><a href="/html/index.html">Home</a></li>
+            <li><a href="/html/collection.html">Collections</a></li>
+            <li><a href="/html/wedding style.html">Wedding Store</a></li>
+            <li><a href="/html/winterwear.html">Winterwear</a></li>
+            <li><a href="/html/new arrivels.html">New Arrivals</a></li>
+        </ul>
+    </div>
+
+    <div class="main-header">
+        <nav class="main-nav" id="navbar">
+            <div class="close-btn" id="close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="nav-left">
+
+                <ul class="main-menu">
+                    <li class="has-dropdown"><a href="/html/index.html">Home</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="/html/collection.html">COLLECTIONS</a>
+
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px; ">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <div class="product-item">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px;">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px; ">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="has-dropdown"><a href="/html/wedding style.html">WESTERN WEAR</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown"><a href="/html/winterwear.html">WINTERWEAR</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown"><a href="/html/new arrivels.html">NEW ARRIVALS</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px; ">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <div class="product-item">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px;">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px; ">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+    </div>
+    <div id="wishlistContainer" class="product-container"></div>
+    <div class="scrolling-container">
+        <div class="marquee">
+            <div class="logo-track">
+                <img src="/img/brand/logo-1.jpg" alt="Wild Stone">
+                <img src="/img/brand/logo-2.jpg" alt="Plum">
+                <img src="/img/brand/logo-3.jpg" alt="Plum">
+                <img src="/img/brand/logo-4.jpg" alt="Plum">
+                <img src="/img/brand/logo-5.jpg" alt="Plum">
+                <img src="/img/brand/logo-6.jpg" alt="Plum">
+                <img src="/img/brand/logo-7.jpg" alt="Plum">
+                <img src="/img/brand/logo-8.jpg" alt="Plum">
+                <img src="/img/brand/logo-9.jpg" alt="Plum">
+                <img src="/img/brand/logo-10.jpg" alt="Plum">
+                <img src="/img/brand/logo-11.jpg" alt="Plum">
+                <img src="/img/brand/logo-12.jpg" alt="Plum">
+                <img src="/img/brand/logo-13.png" alt="Plum">
+                <img src="/img/brand/logo-14.png" alt="Plum">
+                <img src="/img/brand/logo-15.webp" alt="Plum">
+                <img src="/img/brand/logo-16.png" alt="Plum">
+                <img src="/img/brand/logo-17.png" alt="Plum">
+                <img src="/img/brand/logo-18.webp" alt="Plum">
+                <img src="/img/brand/logo-19.webp" alt="Plum">
+                <img src="/img/brand/logo-20.png" alt="Plum">
+                <img src="/img/brand/logo-21.jpg" alt="Plum">
+                <img src="/img/brand/logo-22.jpg" alt="Plum">
+                <img src="/img/brand/logo-23.jpg" alt="Plum">
+                <img src="/img/brand/logo-24.jpg" alt="Plum">
+                <img src="/img/brand/logo-25.jpg" alt="Plum">
+
+
+            </div>
+        </div>
+    </div>
+    <footer class="section-p1">
+        <div class="footer-col brand-info">
+            <h2 class="footer-logo">VELZO</h2>
+            <p>We offer a wide range of streetwear and street fashion designed with comfort, quality, and style in mind.
+                Our collection includes oversize shirts, hoodies, baggy pants, and more.Inspired by Italian and Korean
+                trends, our imported clothing features printed, checked, and acid wash styles for a modern look.</p>
+        </div>
+        <div class="col">
+            <img class="logo" src="/img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong>342 road</p>
+            <p><strong>Phone:</strong>+01 345 678 23</p>
+            <p><strong>Hours:</strong>10:00 - 18:00,Mon - Sat</p>
+        </div>
+
+        <div class="col">
+            <h4>Adout</h4>
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="wedding style.html">Wedding style</a>
+            <a href="winterwear.html">Winterwear</a>
+            <a href="new arrivels.html">New Arrivels</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Contact</a>
+            <a href="cart.html">View Cart</a>
+            <a href="wishlike.html">My Wishlist</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="follow">
+            <h4>Follow us</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-linkedin"></i>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy 2026, **velzo** - Streetwear & Street Fashion. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const wishlistContainer = document.getElementById("wishlistContainer");
+
+        function getWishlist() {
+            const wishlist = localStorage.getItem("userWishlist");
+            return wishlist ? JSON.parse(wishlist) : [];
+        }
+
+        function displayWishlist() {
+            const products = getWishlist();
+            wishlistContainer.innerHTML = "";
+
+            if (products.length === 0) {
+                wishlistContainer.innerHTML = "<h3>No liked products found 💔</h3>";
+                return;
+            }
+
+            products.forEach(p => {
+                const discount = p.originalPrice > p.price
+                    ? Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100)
+                    : 0;
+
+                const div = document.createElement("div");
+                div.classList.add("pro");
+
+                div.innerHTML = `
+            <img src="${p.image}" alt="${p.name}">
+            <div class="des">
+                <span>${p.brand}</span>
+                <h5>${p.name}</h5>
+                <h4>₹${p.price} ${discount > 0 ? `<del>₹${p.originalPrice}</del> <span style='color:green'>(${discount}% OFF)</span>` : ""}</h4>
+            </div>
+
+            <button class="add-cart-btn" data-id="${p.id}">
+            </button>
+
+            <button class="remove-btn" data-id="${p.id}">
+                ❌
+            </button>
+        `;
+
+                function addToCart(product) {
+                    let cart = getCart();
+                    const existing = cart.find(item => item.id === product.id);
+
+                    // 1. Update Cart Data (Existing Functionality)
+                    if (existing) {
+                        existing.quantity += 1;
+                    } else {
+                        cart.push({ ...product, quantity: 1 });
+                    }
+                    localStorage.setItem("userCart", JSON.stringify(cart));
+
+                    // 2. CRITICAL ADDITION: Save Details for the Shop Page
+                    // This line is needed so shop.html can load the product's details
+                    localStorage.setItem("selectedProduct", JSON.stringify(product));
+
+                    // 3. CRITICAL ADDITION: Redirect to Page
+                    // This line navigates to the shop page immediately
+                    window.location.href = "/html/shop.html";
+                }
+
+                div.addEventListener("click", () => {
+                    localStorage.setItem("selectedProduct", JSON.stringify(p));
+                    window.location.href = "/html/shop.html";
+                });
+
+                div.querySelector(".add-cart-btn").addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    addToCart(p);
+                });
+
+                div.querySelector(".remove-btn").addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    removeFromWishlist(p.id);
+                });
+
+                wishlistContainer.appendChild(div);
+            });
+        }
+
+        function removeFromWishlist(id) {
+            const card = document.querySelector(`.remove-btn[data-id="${id}"]`).closest(".pro");
+            card.classList.add("remove-anim");
+
+            setTimeout(() => {
+                let wishlist = getWishlist();
+                wishlist = wishlist.filter(item => item.id !== id);
+                localStorage.setItem("userWishlist", JSON.stringify(wishlist));
+                displayWishlist();
+            }, 400);
+        }
+
+        function getCart() {
+            const cart = localStorage.getItem("userCart");
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function addToCart(product) {
+            let cart = getCart();
+            const existing = cart.find(item => item.id === product.id);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            localStorage.setItem("userCart", JSON.stringify(cart));
+            alert("Added to cart!");
+        }
+
+        document.addEventListener("DOMContentLoaded", displayWishlist);
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

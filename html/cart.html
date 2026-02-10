@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELZO</title>
+    <link rel="stylesheet" href="../css/style copy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <marquee bgcolor="silver" loop="-1" scrollamount="5" width="100%">
+        Get EXTRA 15% OFF On Orders Above $1299* Code:FLAT300 | Get EXTRA 15% OFF On Orders Above $300* Code:FLAT300
+    </marquee>
+    <header class="main-header">
+        <div class="container main-header-content">
+            <a href="#" class="macy-logo">VELZO</a>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for products...">
+            </div>
+
+            <div id="searchResults" class="results-box"></div>
+            <div class="account-actions">
+                <a href="#" id="profileLinkPlaceholder" title="Profile/Login">
+                    <i class="fa-solid fa-user" id="profileIconStarter"></i>
+                </a>
+
+                <div id="profileComponentPlaceholder"></div>
+
+                <a href="../html/cart.html" title="Cart" class="cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-badge" class="cart-badge">0</span>
+                </a>
+                <a href="../html/wishlike.html" class="wishlist-btn-nav" title="Wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <span id="wishlist-badge" class="wishlist-badge">0</span>
+                </a>
+                <!-- Sidebar Open Button -->
+                <div class="menu-btn" id="openSidebar">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+        </div>
+
+
+    </header>
+    <div class="scrolling-container move">
+        <div class="marquee">
+            <div class="logo-track">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/tmen4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/weman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/tweman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/tmen2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/weman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/tmen3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/weman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/tmen1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/tmen4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/tweman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/tmen1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/tweman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/tmen2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/tweman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+            </div>
+        </div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" id="closeSidebar">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li><a href="/html/index.html">Home</a></li>
+            <li><a href="/html/collection.html">Collections</a></li>
+            <li><a href="/html/wedding style.html">Wedding Store</a></li>
+            <li><a href="/html/winterwear.html">Winterwear</a></li>
+            <li><a href="/html/new arrivels.html">New Arrivals</a></li>
+        </ul>
+    </div>
+
+    <div class="main-header">
+        <nav class="main-nav" id="navbar">
+            <div class="close-btn" id="close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="nav-left">
+
+                <ul class="main-menu">
+                    <li class="has-dropdown"><a  href="/html/index.html">Home</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="/html/collection.html">COLLECTIONS</a>
+
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px; ">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <div class="product-item">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px;">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px; ">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="has-dropdown"><a href="/html/wedding style.html">WESTERN WEAR</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown"><a href="/html/winterwear.html">WINTERWEAR</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown"><a href="/html/new arrivels.html">NEW ARRIVALS</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px; ">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <div class="product-item">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px;">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px; ">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+    </div>
+    <section id="banner5" style="text-align: center; padding: 20px; background-color: #f8f8f8;">
+
+
+        <h2 style="font-size: 2em; margin: 10px 0; color:#c3c61c ;" class="banner-h2">
+            Save up to <span style="color: #e02b2b; font-weight: bold;">50% off</span> - T-Shirts, Accessories & Repair
+            Services
+        </h2>
+    </section>
+
+    <section id="cart-container">
+        <div class="cart-items-list">
+            <h2 id="cart-heading">Shopping Cart(0 Items)</h2>
+            <hr style="margin-bottom: 25px;">
+        </div>
+
+        <div class="order-summary-box">
+            <h3>PRICE DETAILS</h3>
+
+            <div class="coupon-box">
+                <p style="font-weight: 600; margin-bottom: 8px;">COUPON / GIFT CARD</p>
+                <input type="text" id="coupon-input" placeholder="Enter Code">
+                <button id="apply-coupon-btn">APPLY</button>
+            </div>
+            <div id="toast-container"></div>
+            <div class="summary-row">
+                <span>Total MRP (<span id="item-count-summary">0</span> Items)</span>
+                <span id="total-mrp">₹0</span>
+            </div>
+            <div class="summary-row">
+                <span>Discount on MRP</span>
+                <span style="color: green;" id="discount-on-mrp">- ₹0</span>
+            </div>
+            <div class="summary-row">
+                <span>Coupon Discount (F#####0)</span>
+                <span style="color: green;" id="coupon-discount">- ₹300</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping Fee</span>
+                <span style="color: green;">FREE</span>
+            </div>
+
+            <div class="summary-row total">
+                <span>Grand Total</span>
+                <span id="grand-total-amount">₹0</span>
+            </div>
+
+            <p style="font-size: 14px; margin-top: 15px; color: #606060;">You will save **₹<span
+                    id="total-savings">0</span>** on this order!</p>
+
+            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+            <a href="/html/collection.html" class="continue-shopping-link">⬅️ Continue Shopping</a>
+
+        </div>
+
+    </section>
+    <div id="address-modal-overlay">
+        <div id="address-modal-content">
+            <div class="modal-header">
+                <h2>Add an address</h2>
+                <button id="close-address-modal" aria-label="Close modal">&times;</button>
+            </div>
+
+            <div class="address-form-container">
+                <h3>Enter a new delivery address</h3>
+
+                <form id="address-form">
+                    <label for="country">Country/Region</label>
+                    <select id="country" name="country">
+                        <option value="India" selected>India</option>
+                    </select>
+
+                    <label for="fullName">Full name (First and Last name)</label>
+                    <input type="text" id="fullName" name="fullName" required>
+
+                    <label for="mobileNumber">Mobile number</label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required
+                        placeholder="May be used to assist delivery">
+
+                    <label for="pincode">Pincode</label>
+                    <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required
+                        placeholder="6 digits [0-9] PIN code">
+
+                    <label for="flatHouse">Flat, House no., Building, Company, Apartment</label>
+                    <input type="text" id="flatHouse" name="flatHouse" required>
+
+                    <label for="areaStreet">Area, Street, Sector, Village</label>
+                    <input type="text" id="areaStreet" name="areaStreet" required>
+
+                    <label for="landmark">Landmark</label>
+                    <input type="text" id="landmark" name="landmark" placeholder="E.g. near apollo hospital">
+
+                    <div class="city-state-group">
+                        <div>
+                            <label for="townCity">Town/City</label>
+                            <input type="text" id="townCity" name="townCity" required>
+                        </div>
+                        <div>
+                            <label for="state">State</label>
+                            <select id="state" name="state" required>
+                                <option value="">Choose a state</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Karnataka">Karnataka</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-address-btn">Use this address</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="payment-options-container" id="payment-step">
+        <h3>💳 Select Payment Method</h3>
+
+        <div class="summary-mini">
+            Final Payable Amount: <span id="final-amount">₹1698</span>
+        </div>
+
+        <div class="payment-option-box" onclick="selectPayment('online')">
+            <input type="radio" id="online" name="paymentMethod" value="online">
+            <label for="online">Online Payment (Card, UPI, Netbanking)</label>
+
+            <div id="online-details" class="payment-details">
+                <p>Enter your card or UPI details:</p>
+
+                <input type="text" placeholder="Card Number" id="cardNumber" maxlength="19">
+                <div class="card-details-group">
+                    <input type="text" placeholder="MM/YY" id="expiryDate" maxlength="5">
+                    <input type="password" placeholder="CVV" id="cvv" maxlength="4">
+                </div>
+
+                <p style="margin-top: 15px;">OR</p>
+
+                <input type="text" placeholder="Enter UPI ID (e.g., yourname@bank)" id="upiId">
+            </div>
+        </div>
+
+        <div class="payment-option-box" onclick="selectPayment('cod')">
+            <input type="radio" id="cod" name="paymentMethod" value="cod">
+            <label for="cod">Cash on Delivery (Pay at the door)</label>
+
+            <div id="cod-details" class="payment-details">
+                <p>Please keep the exact amount ready to ensure a quick delivery experience.</p>
+                <p style="font-weight: bold; color: #088178;">COD is available for this address.</p>
+            </div>
+        </div>
+
+        <button class="place-order-btn" id="placeOrderBtn" disabled>PLACE ORDER</button>
+    </div>
+    </div>
+    </div>
+
+
+    <div class="scrolling-container">
+        <div class="marquee">
+            <div class="logo-track">
+                <img src="/img/brand/logo-1.jpg" alt="Wild Stone">
+                <img src="/img/brand/logo-2.jpg" alt="Plum">
+                <img src="/img/brand/logo-3.jpg" alt="Plum">
+                <img src="/img/brand/logo-4.jpg" alt="Plum">
+                <img src="/img/brand/logo-5.jpg" alt="Plum">
+                <img src="/img/brand/logo-6.jpg" alt="Plum">
+                <img src="/img/brand/logo-7.jpg" alt="Plum">
+                <img src="/img/brand/logo-8.jpg" alt="Plum">
+                <img src="/img/brand/logo-9.jpg" alt="Plum">
+                <img src="/img/brand/logo-10.jpg" alt="Plum">
+                <img src="/img/brand/logo-11.jpg" alt="Plum">
+                <img src="/img/brand/logo-12.jpg" alt="Plum">
+                <img src="/img/brand/logo-13.png" alt="Plum">
+                <img src="/img/brand/logo-14.png" alt="Plum">
+                <img src="/img/brand/logo-15.webp" alt="Plum">
+                <img src="/img/brand/logo-16.png" alt="Plum">
+                <img src="/img/brand/logo-17.png" alt="Plum">
+                <img src="/img/brand/logo-18.webp" alt="Plum">
+                <img src="/img/brand/logo-19.webp" alt="Plum">
+                <img src="/img/brand/logo-20.png" alt="Plum">
+                <img src="/img/brand/logo-21.jpg" alt="Plum">
+                <img src="/img/brand/logo-22.jpg" alt="Plum">
+                <img src="/img/brand/logo-23.jpg" alt="Plum">
+                <img src="/img/brand/logo-24.jpg" alt="Plum">
+                <img src="/img/brand/logo-25.jpg" alt="Plum">
+
+
+            </div>
+        </div>
+    </div>
+    <footer class="section-p1">
+        <div class="footer-col brand-info">
+            <h2 class="footer-logo">VELZO</h2>
+            <p>We offer a wide range of streetwear and street fashion designed with comfort, quality, and style in mind.
+                Our collection includes oversize shirts, hoodies, baggy pants, and more.Inspired by Italian and Korean
+                trends, our imported clothing features printed, checked, and acid wash styles for a modern look.</p>
+        </div>
+        <div class="col">
+            <img class="logo" src="/img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong>342 road</p>
+            <p><strong>Phone:</strong>+01 345 678 23</p>
+            <p><strong>Hours:</strong>10:00 - 18:00,Mon - Sat</p>
+        </div>
+
+        <div class="col">
+            <h4>Adout</h4>
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="wedding style.html">Wedding style</a>
+            <a href="winterwear.html">Winterwear</a>
+            <a href="new arrivels.html">New Arrivels</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Contact</a>
+            <a href="cart.html">View Cart</a>
+            <a href="wishlike.html">My Wishlist</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="follow">
+            <h4>Follow us</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-linkedin"></i>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy 2026, **velzo** - Streetwear & Street Fashion. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const CART_KEY = 'cartItems';
+        // State to track applied coupon discount
+        let currentCouponDiscount = 0;
+
+        // ... (getCartItems and saveCartItems functions remain the same) ...
+        function getCartItems() {
+            try {
+                return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+            } catch (e) {
+                console.error("Error parsing cart data from localStorage:", e);
+                return [];
+            }
+        }
+
+        function saveCartItems(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        }
+
+        // -------------------------------------------------------------
+        // --- updated RENDER FUNCTION ---
+        // -------------------------------------------------------------
+        function renderCartItems() {
+            const cartItems = getCartItems();
+            const listContainer = document.querySelector('.cart-items-list');
+
+            listContainer.querySelectorAll('.cart-item-card, .empty-cart-message').forEach(el => el.remove());
+
+            if (cartItems.length === 0) {
+                listContainer.innerHTML += '<p class="empty-cart-message">Your shopping bag is empty! Start shopping now.</p>';
+                // If cart is empty, reset coupon
+                currentCouponDiscount = 0;
+                updateCartSummary(cartItems);
+                return;
+            }
+
+            let cartHTML = '';
+
+            cartItems.forEach(item => {
+                const salePrice = item.price;
+                const originalPrice = salePrice > 1000 ? Math.round(salePrice * 3) : Math.round(salePrice * 5);
+
+                cartHTML += `
+                <div class="cart-item-card" 
+                     data-id="${item.id}" 
+                     data-price="${salePrice}" 
+                     data-original-price="${originalPrice}">
+                    
+                    <img src="${item.image || 'path/to/default_image.png'}" alt="${item.name}" class="cart-item-image">
+                    
+                    <div class="cart-item-details">
+                        <h4>${item.name}</h4>
+                        <p>Size: <b>${item.size}</b></p>
+                        <p>MRP: <del>₹${originalPrice}</del></p>
+                        <p>Seller: VELZO</p>
+                    </div>
+                    
+                    <div class="item-actions">
+                        <div class="quantity-control">
+                            <button class="qty-minus" data-action="minus" data-id="${item.id}">-</button>
+                            <span class="qty-value">${item.quantity}</span>
+                            <button class="qty-plus" data-action="plus" data-id="${item.id}">+</button>
+                        </div>
+                        <button class="remove-btn" data-action="remove" data-id="${item.id}">🗑️</button>
+                    </div>
+                    
+                    <div class="cart-item-price">₹${salePrice * item.quantity}</div>
+                </div>
+            `;
+            });
+
+            listContainer.insertAdjacentHTML('beforeend', cartHTML);
+            updateCartSummary(cartItems);
+        }
+
+        // -------------------------------------------------------------
+        // --- updated SUMMARY CALCULATION FUNCTION ---
+        // -------------------------------------------------------------
+        function updateCartSummary(cartItems) {
+            let totalMRP = 0;
+            let subtotal = 0;
+
+            const shippingFee = 0; // FREE Shipping
+
+            cartItems.forEach(item => {
+                const card = document.querySelector(`.cart-item-card[data-id="${item.id}"]`);
+                if (!card) return; // Guard clause if card isn't rendered yet
+
+                const salePrice = parseFloat(card.getAttribute('data-price'));
+                const originalPrice = parseFloat(card.getAttribute('data-original-price'));
+
+                totalMRP += originalPrice * item.quantity;
+                subtotal += salePrice * item.quantity;
+            });
+
+            const discountOnMRP = totalMRP - subtotal;
+
+            // Use the globally tracked coupon discount variable here
+            let grandTotal = subtotal - currentCouponDiscount + shippingFee;
+            const totalSavings = discountOnMRP + currentCouponDiscount;
+
+            // Update the DOM elements
+            document.getElementById('item-count-summary').textContent = cartItems.length;
+            document.getElementById('cart-heading').textContent = ` Shopping Cart(${cartItems.length} Items)`;
+            document.getElementById('total-mrp').textContent = `₹${totalMRP.toLocaleString('en-IN')}`;
+            document.getElementById('discount-on-mrp').textContent = `- ₹${discountOnMRP.toLocaleString('en-IN')}`;
+
+            // Update the coupon row to show current discount
+            document.getElementById('coupon-discount').textContent = `- ₹${currentCouponDiscount.toLocaleString('en-IN')}`;
+
+            document.getElementById('grand-total-amount').textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
+            document.getElementById('total-savings').textContent = totalSavings.toLocaleString('en-IN');
+        }
+
+        // ... (updateQuantity and removeItem functions remain the same) ...
+        function updateQuantity(itemId, change) {
+            let cartItems = getCartItems();
+            const itemIndex = cartItems.findIndex(item => item.id === itemId);
+
+            if (itemIndex > -1) {
+                cartItems[itemIndex].quantity += change;
+                if (cartItems[itemIndex].quantity < 1) {
+                    cartItems[itemIndex].quantity = 1;
+                }
+                saveCartItems(cartItems);
+                renderCartItems();
+            }
+        }
+
+        function removeItem(itemId) {
+            let cartItems = getCartItems();
+            cartItems = cartItems.filter(item => item.id !== itemId);
+            saveCartItems(cartItems);
+            renderCartItems();
+        }
+
+        // -------------------------------------------------------------
+        // --- INITIALIZATION AND EVENT LISTENERS ---
+        // -------------------------------------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCartItems();
+
+            // Dynamic controls listener
+            document.querySelector('.cart-items-list').addEventListener('click', (e) => {
+                const button = e.target.closest('button');
+                if (!button) return;
+
+                const itemId = button.getAttribute('data-id');
+                const action = button.getAttribute('data-action');
+
+                if (!itemId || !action) return;
+
+                if (action === 'plus') {
+                    updateQuantity(itemId, 1);
+                } else if (action === 'minus') {
+                    updateQuantity(itemId, -1);
+                } else if (action === 'remove') {
+                    if (confirm("Are you sure you want to remove this item from your bag?")) {
+                        removeItem(itemId);
+                    }
+                }
+            });
+
+            // --- NEW: Coupon Application Logic ---
+            const applyBtn = document.getElementById('apply-coupon-btn');
+            const couponInput = document.getElementById('coupon-input');
+
+            applyBtn.addEventListener('click', () => {
+                const code = couponInput.value.trim().toUpperCase();
+                const cartItems = getCartItems();
+
+                if (cartItems.length === 0) {
+                    alert("Add items to cart first!");
+                    return;
+                }
+
+                if (cartItems.length === 0) {
+                    showToast("Add items to cart first!", "error"); // Red toast
+                    return;
+                }
+
+                if (code === 'FLAT300') {
+                    currentCouponDiscount = 300;
+                    showToast('Coupon "FLAT300" applied! ₹300 off.', 'success'); // Green toast
+                } else if (code === 'FEST15') {
+                    let subtotal = 0;
+                    cartItems.forEach(item => subtotal += item.price * item.quantity);
+
+                    if (subtotal > 1299) {
+                        currentCouponDiscount = Math.round(subtotal * 0.15);
+                        showToast(`Coupon "FEST15" applied! ₹${currentCouponDiscount} off.`, 'success');
+                    } else {
+                        showToast('Order must be above $1299 for FEST15', 'error');
+                        currentCouponDiscount = 0;
+                    }
+                } else {
+                    currentCouponDiscount = 0;
+                    showToast('Invalid Coupon Code.', 'error');
+                }
+
+                // Re-render summary to show new total
+                updateCartSummary(cartItems);
+            });
+
+            // Checkout button listener
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('checkout-btn')) {
+                    const currentCart = getCartItems();
+                    if (currentCart.length === 0) {
+                        alert('Your bag is empty. Please add items before checking out!');
+                        return;
+                    }
+                    alert('Proceeding to Checkout!');
+                }
+            });
+        });
+
+    </script>
+
+   <script src="../js/script.js"></script>
+<script type="module" src="../js/firebaseConfig.js"></script>
+<script type="module" src="../js/checkout.js"></script>
+</body>
+
+</html>

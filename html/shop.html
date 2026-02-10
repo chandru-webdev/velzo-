@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> VELZO</title>
+    <link rel="stylesheet" href="/css/style copy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ------------------------------------------------------------- */
+        /* --- CORRECTED AND UPDATED CSS STYLES FOR SCREENSHOT 1 LOOK --- */
+        /* ------------------------------------------------------------- */
+
+        /* --- 1. Product Details Section Layout (Container for Left & Right) --- */
+        #prodetails {
+            display: flex;
+            padding: 40px 80px;
+        }
+
+        .product-page-wrapper {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        /* --- 2. Left Side: Images --- */
+        .single-pro-image {
+            width: 35%;
+            margin-right: 50px;
+            max-width: 500px;
+        }
+
+        #MainImg {
+            width: 100%;
+            height: auto;
+            border: 1px solid #e2e2e2;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .small-img-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            /* Changed from 50% to ensure correct thumbnail display relative to main image */
+        }
+
+        .small-img-col {
+            flex-basis: 24%;
+            cursor: pointer;
+        }
+
+        .small-img-col img {
+            width: 100%;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .small-img-col img:hover {
+            border-color: #088178;
+        }
+
+        /* --- 3. Right Side: Product Info/Details --- */
+        .single-pro-details {
+            width: 60%;
+            /* Adjusted width to fill space better (35% image + 50px margin + 60% details ≈ 100%) */
+            padding-top: 10px;
+            padding-left: 20px;
+            /* Keep padding left for visual spacing */
+        }
+
+        /* Ratings */
+        .ratings-info {
+            font-size: 14px;
+            color: #606060;
+            margin-bottom: 20px;
+        }
+
+        .ratings-info .rating {
+            color: #fff;
+            background: #008000;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-weight: 500;
+        }
+
+        /* Price Section */
+        .price-section {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .price-section .sale-price {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-right: 10px;
+        }
+
+        .price-section .original-price {
+            color: #606060;
+            font-size: 18px;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .price-section .discount-percent {
+            color: #ff9900;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Coupon Offer */
+        .coupon-offer {
+            background: #f1f8e9;
+            padding: 10px;
+            border: 1px dashed #c0c0c0;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        /* Size Selection */
+        .size-selection h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .size-selection .sizes span {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            margin-right: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .size-selection .sizes span:hover {
+            border-color: #088178;
+            color: #088178;
+            font-weight: 600;
+        }
+
+        /* --- Action Buttons (CRITICAL FIX FOR LAYOUT) --- */
+        .action-buttons {
+            display: flex;
+            /* Buttons horizontal-a vara */
+            gap: 10px;
+            /* Space between buttons */
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+
+        .action-buttons button {
+            font-size: 16px;
+            padding: 15px 20px;
+            /* Increased padding for the look in screenshot 1 */
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+            flex-grow: 1;
+            /* Both buttons take equal width */
+            text-align: center;
+            font-weight: 600;
+            background-color: #088178;
+            color: #fff;
+            width: 30%;
+        }
+
+        .add-to-bag {
+            background: #FF4081;
+            /* Pink/Red color matching screenshot 1, changed from green */
+            color: white;
+        }
+
+        .wishlist-btn {
+            background: #fff;
+            color: #1a1a1a;
+            border: 1px solid #ccc !important;
+        }
+
+        /* --- Delivery Options (CRITICAL FIX FOR LAYOUT) --- */
+        .product-delivery {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e2e2;
+        }
+
+        .product-delivery h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Container for Pincode input and Check button (to keep them inline) */
+        .pincode-check-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .product-delivery input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 150px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+
+        .product-delivery .check-btn {
+            background: #fff;
+            /* White button */
+            color: #088178;
+            /* Teal text color */
+            border: 1px solid #ccc;
+            /* Light grey border */
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .product-delivery ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+            color: #444;
+        }
+
+        .product-delivery ul li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        /* Product Details Description */
+        .product-details {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e2e2;
+        }
+
+        .brand-name {
+            font-size: 30px;
+        }
+
+        .name {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .coupon-offer {
+            width: 50%;
+        }
+
+        .action-buttons {
+            width: 30%;
+            padding: 5px;
+        }
+
+        @media (max-width:900px) {
+            .coupon-offer {
+                width: 100%;
+            }
+
+            .action-buttons {
+                width: 50%;
+            }
+
+            #products1 .pro {
+                width: 10%;
+            }
+        }
+
+        /* --- 4. Responsive Design (Mobile View) --- */
+        @media (max-width: 768px) {
+            #prodetails {
+                flex-direction: column;
+                padding-top: 20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .single-pro-image {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+                max-width: none;
+            }
+
+            .single-pro-details {
+                width: 100%;
+                padding-left: 0;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            /* 1. Stack Left and Right Content */
+            #prodetails {
+                flex-direction: column;
+                padding: 15px;
+                /* Reduce large padding */
+            }
+
+            .product-page-wrapper {
+                flex-direction: column;
+            }
+
+            /* 2. Image Section Adjustments */
+            .single-pro-image {
+                width: 100%;
+                /* Take full width */
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            /* Make thumbnails larger for easier tapping on mobile */
+            .small-img-group {
+                gap: 10px;
+                justify-content: flex-start;
+            }
+
+            .small-img-col {
+                flex-basis: 22%;
+                /* Slightly larger Col */
+            }
+
+            /* 3. Details Section Adjustments */
+            .single-pro-details {
+                width: 100%;
+                /* Take full width */
+                padding: 0;
+            }
+
+            /* Optimize typography for small screens */
+            .brand-name {
+                font-size: 24px !important;
+                margin-top: 0;
+            }
+
+            .name {
+                font-size: 18px !important;
+                color: #555;
+            }
+
+            .price-section {
+                font-size: 22px !important;
+            }
+
+            .price-section .original-price {
+                font-size: 16px !important;
+            }
+
+            .coupon-offer {
+                width: 100% !important;
+                /* Full width on mobile */
+                box-sizing: border-box;
+            }
+
+            /* 4. Tappable Size Selection */
+            .size-selection .sizes {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .size-selection .sizes span {
+                flex: 1;
+                /* Equal width sizes */
+                text-align: center;
+                padding: 12px 0;
+                /* Vertical padding for better touch target */
+                margin: 0;
+                /* Remove margins for flex gap */
+            }
+
+            /* 5. ⚠️ Action Buttons (Stacked for Mobile) */
+            .action-buttons {
+                flex-direction: column;
+                /* Stacked: Bag on top of Wishlist */
+                width: 100% !important;
+                padding: 0;
+                border: none;
+                /* Remove desktop border */
+            }
+
+            .action-buttons button {
+                width: 100%;
+                font-size: 16px;
+                padding: 18px;
+                /* Larger hit area */
+            }
+        }
+
+        /* -------------------- Large Laptops (1200px - 1440px) -------------------- */
+        @media (max-width: 1440px) {
+            .container {
+                width: 90%;
+            }
+        }
+
+        /* -------------------- Laptops & Tablets Landscape (1024px and below) -------------------- */
+        @media (max-width: 1024px) {
+            #prodetails {
+                padding: 30px 40px;
+                flex-direction: column;
+            }
+
+            .single-pro-image {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .single-pro-details {
+                width: 100%;
+            }
+
+        }
+
+        /* -------------------- Tablets / iPads (768px and below) -------------------- */
+        @media (max-width: 768px) {
+            .main-header .main-header-content {
+                padding: 10px 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 per row */
+            }
+
+            .action-buttons button {
+                font-size: 14px;
+                padding: 12px 15px;
+                background-color: #088178;
+                color: white;
+            }
+
+        }
+
+        /* -------------------- Mobile Phones (480px and below) -------------------- */
+        @media (max-width: 480px) {
+            #prodetails {
+                padding: 20px 15px;
+                flex-direction: column;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(1, 1fr);
+                /* 1 per row */
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .small-img-group {
+                grid-template-columns: repeat(4, 1fr);
+                display: grid;
+                gap: 10px;
+            }
+
+            .pincode-check-container {
+                flex-wrap: wrap;
+            }
+
+            .product-delivery input[type="text"] {
+                width: 100px;
+            }
+        }
+
+        /* -------------------- Extra Small (360px and below) -------------------- */
+        @media (max-width: 360px) {
+
+            h1,
+            h2,
+            h3 {
+                font-size: smaller;
+            }
+
+            .price-section .sale-price {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <marquee bgcolor="silver" loop="-1" scrollamount="5" width="100%">
+        Get EXTRA 15% OFF On Orders Above $1299* Code:FEST15 | Get EXTRA 15% OFF On Orders Above $1999* Code:FEST20
+    </marquee>
+    <header class="main-header">
+        <div class="container main-header-content">
+            <a href="#" class="macy-logo">VELZO</a>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for products...">
+            </div>
+
+            <div id="searchResults" class="results-box"></div>
+            <div class="account-actions">
+                <a href="#" id="profileLinkPlaceholder" title="Profile/Login">
+                    <i class="fa-solid fa-user" id="profileIconStarter"></i>
+                </a>
+
+                <div id="profileComponentPlaceholder"></div>
+
+                <a href="/html/cart.html" title="Cart" class="cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-badge" class="cart-badge">0</span>
+                </a>
+
+                <a href="/html/wishlike.html" class="wishlist-btn-nav" title="Wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <span id="wishlist-badge" class="wishlist-badge">0</span>
+                </a>
+                <!-- Sidebar Open Button -->
+                <div class="menu-btn" id="openSidebar">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <div class="scrolling-container move">
+        <div class="marquee">
+            <div class="logo-track">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/tmen4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/weman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/tweman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/tmen2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/weman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/tmen3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/weman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/tmen1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/tmen4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/tweman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/tmen1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/men2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/tweman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+                <img src="/img/t-shirt/men1.jpeg" alt="Wild Stone">
+                <img src="/img/t-shirt/tmen2.jpeg" alt="Plum">
+                <img src="/img/t-shirt/men3.jpeg" alt="Nivea">
+                <img src="/img/t-shirt/men4.jpeg" alt="Himalaya">
+                <img src="/img/t-shirt/tweman1.jpeg" alt="Xiaomi/MI">
+                <img src="/img/t-shirt/weman2.jpeg" alt="Bata">
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" id="closeSidebar">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li><a href="/html/index.html">Home</a></li>
+            <li><a href="/html/collection.html">Collections</a></li>
+            <li><a href="/html/wedding style.html">Wedding Store</a></li>
+            <li><a href="/html/winterwear.html">Winterwear</a></li>
+            <li><a href="/html/new arrivels.html">New Arrivals</a></li>
+        </ul>
+    </div>
+    <div class="main-header">
+        <nav class="main-nav" id="navbar">
+            <div class="close-btn" id="close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="nav-left">
+
+                <ul class="main-menu">
+                    <li class="has-dropdown"><a class="active" href="/html/index.html">Home</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="/html/collection.html">COLLECTIONS</a>
+
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px; ">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <div class="product-item">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px;">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px; ">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="has-dropdown"><a href="/html/wedding style.html">WESTERN WEAR</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown"><a href="/html/winterwear.html">WINTERWEAR</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/t-shirt/tweman5.jpeg" alt="Couple in Blazer">
+                                        <div class="product-label">Blazer</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="has-dropdown"><a href="/html/new arrivels.html">NEW ARRIVALS</a>
+                        <div class="mega-menu">
+                            <div class="menu-content ss">
+
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px;">
+                                        <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                            style="padding-bottom: 10px; ">
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <video autoplay muted loop src="/img/t-shirt/wemanvideo2.mp4"
+                                            style="padding-top: 10px;"></video>
+                                        <div class="product-label">Suits</div>
+                                    </div>
+                                </div>
+                                <div class="menu-column product-showcase">
+                                    <div class="product-item">
+                                        <div class="product-item">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px;">
+                                            <img src="/img/banner1/small-5.jpg" alt="Couple in Blazer"
+                                                style="padding-bottom: 10px; ">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+    </div>
+    <div class="hero-section">
+        <div class="filter-bar">
+            <h1 class="page-title">Trending Style <span
+                    style="font-weight: normal; color: #666; text-align: center;">(379)</span></h1>
+        </div>
+        <div class="product-grid" id="product-grid">
+        </div>
+    </div>
+
+    <section id="banner">
+        <h4>Repair Services</h4>
+        <h2>Up to <span>70% off </span>- All T-Shirts & Accessories</h2>
+    </section>
+
+
+    <section id="prodetails" class="section-p1">
+        <div id="product-details-container" class="product-page-wrapper">
+            <h2>Loading Product Details...</h2>
+        </div>
+    </section>
+
+    <div class="mobile-filter-container">
+        <button id="mobileFilterBtn">
+            <i class="fa-solid fa-sliders"></i> FILTER
+        </button>
+    </div>
+
+    <div class="shop-wrapper">
+
+        <div id="filterOverlay" class="filter-overlay">
+            <aside class="filter-sidebar" id="filterMenu">
+                <div class="filter-header">
+                    <h5>FILTERS</h5>
+                    <span id="closeFilter">&times;</span>
+                </div>
+
+                <div class="filter-section">
+                    <h5>PRICE</h5>
+                    <div class="price-input">
+                        <input type="range" id="priceRange" min="0" max="5000" value="5000">
+                        <div class="price-labels">
+                            <span>Min: ₹0</span>
+                            <span id="maxPriceLabel">Max: ₹5000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="filter-section">
+                    <h5>CUSTOMER RATINGS</h5>
+                    <div class="rating-filters">
+                        <label><input type="checkbox" class="rating-filter" value="4"> 4★ & above</label><br>
+                        <label><input type="checkbox" class="rating-filter" value="3"> 3★ & above</label><br>
+                        <label><input type="checkbox" class="rating-filter" value="2"> 2★ & above</label><br>
+                        <label><input type="checkbox" class="rating-filter" value="1"> 1★ & above</label>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="filter-section">
+                    <h5>COLORS</h5>
+                    <div class="swatch-grid">
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="all" checked>
+                            <span class="swatch all-option" title="All Colors"></span>
+                        </label>
+
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="Red">
+                            <span class="swatch" style="background-color: #ff4d4d;" title="Red"></span>
+                        </label>
+
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="Blue">
+                            <span class="swatch" style="background-color: #2e86de;" title="Blue"></span>
+                        </label>
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="Blue">
+                            <span class="swatch" style="background-color: #dc6e25;" title="Blue"></span>
+                        </label>
+
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="Green">
+                            <span class="swatch" style="background-color: #27ae60;" title="Green"></span>
+                        </label>
+
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="Black">
+                            <span class="swatch" style="background-color: #000000;" title="Black"></span>
+                        </label>
+
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="White">
+                            <span class="swatch" style="background-color: #ffffff; border: 1px solid #ddd;"
+                                title="White"></span>
+                        </label>
+
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="Yellow">
+                            <span class="swatch" style="background-color: #f1c40f;" title="Yellow"></span>
+                        </label>
+
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="Navy">
+                            <span class="swatch" style="background-color: #2c3e50;" title="Navy"></span>
+                        </label>
+
+                        <label class="swatch-btn">
+                            <input type="radio" name="color" value="Charcoal">
+                            <span class="swatch" style="background-color: #34495e;" title="Charcoal"></span>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <main id="productContainer">
+        </main>
+    </div>
+
+    </section>
+
+    <div id="notification-toast" class="toast-notification">
+        <span id="toast-message"></span>
+        <a href="/html/cart.html" class="toast-link">VIEW BAG</a>
+    </div>
+
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <h4>crazy deals</h4>
+            <h2>buy 1 get 1 free</h2>
+            <span>The best classic dress is on sale at care</span>
+            <button class="white">Lear More</button>
+        </div>
+        <div class="banner-box banner-box2">
+            <h4>spring/summer</h4>
+            <h2>Upcomming season</h2>
+            <span>The best classic dress is on sale at care</span>
+            <button class="white">Collection</button>
+        </div>
+    </section>
+    <div class="scrolling-container">
+        <div class="marquee">
+            <div class="logo-track">
+                <img src="/img/brand/logo-1.jpg" alt="Wild Stone">
+                <img src="/img/brand/logo-2.jpg" alt="Plum">
+                <img src="/img/brand/logo-3.jpg" alt="Plum">
+                <img src="/img/brand/logo-4.jpg" alt="Plum">
+                <img src="/img/brand/logo-5.jpg" alt="Plum">
+                <img src="/img/brand/logo-6.jpg" alt="Plum">
+                <img src="/img/brand/logo-7.jpg" alt="Plum">
+                <img src="/img/brand/logo-8.jpg" alt="Plum">
+                <img src="/img/brand/logo-9.jpg" alt="Plum">
+                <img src="/img/brand/logo-10.jpg" alt="Plum">
+                <img src="/img/brand/logo-11.jpg" alt="Plum">
+                <img src="/img/brand/logo-12.jpg" alt="Plum">
+                <img src="/img/brand/logo-13.png" alt="Plum">
+                <img src="/img/brand/logo-14.png" alt="Plum">
+                <img src="/img/brand/logo-15.webp" alt="Plum">
+                <img src="/img/brand/logo-16.png" alt="Plum">
+                <img src="/img/brand/logo-17.png" alt="Plum">
+                <img src="/img/brand/logo-18.webp" alt="Plum">
+                <img src="/img/brand/logo-19.webp" alt="Plum">
+                <img src="/img/brand/logo-20.png" alt="Plum">
+                <img src="/img/brand/logo-21.jpg" alt="Plum">
+                <img src="/img/brand/logo-22.jpg" alt="Plum">
+                <img src="/img/brand/logo-23.jpg" alt="Plum">
+                <img src="/img/brand/logo-24.jpg" alt="Plum">
+                <img src="/img/brand/logo-25.jpg" alt="Plum">
+
+
+            </div>
+        </div>
+    </div>
+    <footer class="section-p1">
+        <div class="footer-col brand-info">
+            <h2 class="footer-logo">VELZO</h2>
+            <p>We offer a wide range of streetwear and street fashion designed with comfort, quality, and style in mind.
+                Our collection includes oversize shirts, hoodies, baggy pants, and more.Inspired by Italian and Korean
+                trends, our imported clothing features printed, checked, and acid wash styles for a modern look.</p>
+        </div>
+        <div class="col">
+            <img class="logo" src="/img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong>342 road</p>
+            <p><strong>Phone:</strong>+01 345 678 23</p>
+            <p><strong>Hours:</strong>10:00 - 18:00,Mon - Sat</p>
+        </div>
+
+        <div class="col">
+            <h4>Adout</h4>
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collection</a>
+            <a href="wedding style.html">Wedding style</a>
+            <a href="winterwear.html">Winterwear</a>
+            <a href="new arrivels.html">New Arrivels</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Contact</a>
+            <a href="cart.html">View Cart</a>
+            <a href="wishlike.html">My Wishlist</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="follow">
+            <h4>Follow us</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-linkedin"></i>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy 2026, **velzo** - Streetwear & Street Fashion. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- NEW: Toast Notification Function ---
+        function showToastNotification(message) {
+            const toast = document.getElementById('notification-toast');
+            const toastMessage = document.getElementById('toast-message');
+
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+
+            // Hide the toast after 4 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+        // --- End of Toast Notification Function ---
+
+
+        function loadProductDetails() {
+            const container = document.getElementById('product-details-container');
+            const productJSON = localStorage.getItem("selectedProduct");
+
+            if (!productJSON) {
+                container.innerHTML = '<h2>❌ Error: No product selected. Please go back to the collection page.</h2>';
+                return;
+            }
+
+            try {
+                const product = JSON.parse(productJSON);
+
+                // Price and Discount Calculation...
+                const originalPrice = product.originalPrice || 3499;
+                const salePrice = product.price || 749;
+                const percentageOff = originalPrice > salePrice
+                    ? Math.round(((originalPrice - salePrice) / originalPrice) * 100)
+                    : 0;
+
+                const mainImage = product.imageMain || product.image || '';
+
+                // Image paths for thumbnails (collecting and filtering)...
+                const allImages = [
+                    product.image,
+                    product.imageMain,
+                    product.image2,
+                    product.image3,
+                    ...(product.thumbnails || [])
+                ].filter(img => img);
+
+                // Generating thumbnail HTML...
+                const thumbnailHTML = allImages.slice(0, 4).map((imgUrl, index) => `
+                    <div class="small-img-col">
+                        <img src="${imgUrl}" width="100%" class="small-img" alt="Thumbnail ${index + 1}">
+                    </div>
+                `).join('');
+
+
+                // ✅ HTML Content Generation 
+                const productHTML = `
+                    <div class="single-pro-image">
+                        <img src="${mainImage}" width="100%" id="MainImg" alt="${product.name}">
+
+                        <div class="small-img-group">
+                            ${thumbnailHTML}
+                        </div>
+                    </div>
+
+                    <div class="single-pro-details">
+                        <h2 class="brand-name">${product.brand || 'HRX by Hrithik Roshan'}</h2>
+                        <h3 class="name">${product.name || 'Rapid Dry Running Tracksuits'}</h3>
+                        
+                        <div class="ratings-info">
+                            <span class="rating">${product.rating || '4.4 ⭐'}</span> | (59 Ratings)
+                        </div>
+
+                        <div class="price-section">
+                            <strong class="sale-price" id="product-sale-price">₹${salePrice}</strong>
+                            <del class="original-price">₹${originalPrice}</del>
+                            <span class="discount-percent">(${percentageOff}% OFF)</span>
+                        </div>
+                        
+                        <div class="coupon-offer">
+                            Get at **₹1,449** with Coupon **"FLAT300"**
+                        </div>
+
+                        <div class="size-selection" id="size-selection-container">
+                            <h3>SELECT SIZE</h3>
+                            <div class="sizes">
+                                <span data-size="XS">XS</span><span data-size="S">S</span><span data-size="M">M</span><span data-size="L">L</span><span data-size="XL">XL</span><span data-size="XXL">XXL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button class="add-to-cart-btn" id="addToBagBtn"
+        data-id="${product.id || Date.now()}"
+        data-title="${product.name || 'Rapid Dry Running Tracksuits'}"
+        data-price="${salePrice}"
+        data-img="${mainImage}">
+        Add to Bag
+    </button>
+                        </div>
+                        
+                        <div class="product-delivery">
+                            <h3>DELIVERY OPTIONS</h3>
+                            <ul>
+                                <li>Express delivery might be available</li>
+                                <li>Pay on delivery might be available</li>
+                                <li>Easy 7 days returns and exchanges</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-details">
+                            <h3>PRODUCT DETAILS</h3>
+                            <span>${product.description || 'Product details description goes here...'}</span>
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML = productHTML;
+
+                // --- 📸 Image Switching Logic (Existing) ---
+                const mainImg = document.getElementById("MainImg");
+                const smallImgs = document.getElementsByClassName("small-img");
+
+                for (let i = 0; i < smallImgs.length; i++) {
+                    smallImgs[i].addEventListener('click', function () {
+                        mainImg.src = smallImgs[i].src;
+                    });
+                }
+                // --- End of Image Switching Logic ---
+
+                // --- 👕 Size Selection Logic (Existing) ---
+                const sizeSpans = document.querySelectorAll('.size-selection .sizes span');
+                let selectedSize = '';
+
+                sizeSpans.forEach(span => {
+                    span.addEventListener('click', function () {
+                        sizeSpans.forEach(s => s.classList.remove('selected'));
+                        this.classList.add('selected');
+                        selectedSize = this.getAttribute('data-size');
+                    });
+                });
+
+                // --- 🛒 Add to Bag Logic (UPDATED) ---
+                const addToBagBtn = document.getElementById('addToBagBtn');
+
+                addToBagBtn.addEventListener('click', function () {
+                    if (!selectedSize) {
+                        showToastNotification('⚠️ Please select a size.');
+                        return;
+                    }
+
+                    const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+                    const newCartItem = {
+                        id: this.getAttribute('data-id') + '-' + selectedSize,
+                        productId: this.getAttribute('data-id'),
+                        name: this.getAttribute('data-title'),
+                        price: parseFloat(this.getAttribute('data-price')),
+                        image: mainImg.src, // Use the currently displayed main image
+                        size: selectedSize,
+                        quantity: 1
+                    };
+
+                    const existingItem = cart.find(item => item.id === newCartItem.id);
+
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                        showToastNotification(`Item added! (${newCartItem.name}, Qty: ${existingItem.quantity})`);
+                    } else {
+                        cart.push(newCartItem);
+                        showToastNotification(`✅ Added ${newCartItem.name} to bag!`);
+                    }
+
+                    localStorage.setItem('cartItems', JSON.stringify(cart));
+                });
+                // --- End of Add to Bag Logic ---
+
+            } catch (e) {
+                console.error('Error loading or parsing product data:', e);
+                container.innerHTML = '<h2>❌ Error: Failed to load product details from local storage.</h2>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProductDetails);
+
+        // --- 🛒 Add to Bag Logic (UPDATED) ---
+        const addToBagBtn = document.getElementById('addToBagBtn');
+
+        addToBagBtn.addEventListener('click', function () {
+            // Check if the selectedSize variable is empty (meaning no size was clicked)
+            if (!selectedSize) {
+                // ... action taken if size is NOT selected
+                showToastNotification('⚠️ Please select a size.');
+                return;
+            }
+
+            // ... The rest of the logic (getting cart, adding item, saving to localStorage)
+            // ... only runs if a size IS selected.
+
+            const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // ... (rest of the cart logic) ...
+
+            localStorage.setItem('cartItems', JSON.stringify(cart));
+            showToastNotification(`✅ Added ${newCartItem.name} to bag!`);
+        });
+        // --- End of Add to Bag Logic ---
+    </script>
+    <script src="/js/script.js"></script>
+    <script>loadProducts("women.json");</script>
+</body>
+
+</html>

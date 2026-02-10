@@ -1,0 +1,529 @@
+[
+  {
+    "id": 1,
+    "name": "Red Performance T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 749,
+    "originalPrice": 3499,
+    "discount": "50%",
+    "rating": "4.4 ⭐",
+    "image": "https://static.zara.net/assets/public/b2c8/dcbd/56444c58b3db/3da7a5a09c62/01063411420-e1/01063411420-e1.jpg",
+    "color": "Red",
+    "thumbnails": [
+      "/img/velzo-img/shirt-2.jpeg",
+      "/img/velzo-img/shirt-3.jpeg",
+      "/img/velzo-img/shirt-4.jpeg"
+    ],
+    "description": "High-performance tracksuit with Rapid Dry technology."
+  },
+  {
+    "id": 2,
+    "name": "Red Performance T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 749,
+    "originalPrice": 3499,
+    "discount": "50%",
+    "rating": "4.4 ⭐",
+    "image": "https://static.zara.net/assets/public/f8e1/51a2/622a475282dd/b18ba428df04/04302205800-e1/04302205800-e1.jpg",
+    "color": "Red",
+    "thumbnails": [
+      "https://static.zara.net/assets/public/dfe1/681e/e89141e083be/957270eacf72/04302206826-e1/04302206826-e1.jpg",
+      "https://static.zara.net/assets/public/8993/b28f/82994834861b/e1d8fe183b87/04302205800-e1/04302205800-e1.jpg",
+      "https://static.zara.net/assets/public/b407/7eb9/69734e5c93b8/7b8f8af94082/04302205401-e1/04302205401-e1.jpg"
+    ],
+    "description": "High-performance tracksuit with Rapid Dry technology."
+  },
+  {
+    "id": 3,
+    "name": "Jet Black Training Joggers",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 1299,
+    "originalPrice": 2599,
+    "discount": "50%",
+    "rating": "4.5 ⭐",
+    "image": "https://static.zara.net/assets/public/4bd7/300c/830c47e2ab8d/5ee40d1b2123/04302425800-e1/04302425800-e1.jpg",
+    "color": "Black",
+    "thumbnails": [
+      "https://static.zara.net/assets/public/36a2/d2fc/f7fe4bb48cd2/05c822843ea1/04027400800-e1/04027400800-e1.jpg",
+      "https://static.zara.net/assets/public/84a7/b60d/84dd48c3867a/479f444f102a/04027400753-e1/04027400753-e1.jpg"
+    ],
+    "description": "Slim-fit training joggers with zippered pockets and breathable fabric."
+  },
+  {
+    "id": 4,
+    "name": "Neon Yellow Running Shoes",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 2499,
+    "originalPrice": 4999,
+    "discount": "50%",
+    "rating": "4.6 ⭐",
+    "image": "https://static.zara.net/assets/public/89ad/c1b1/e1954f4dbee6/66f638808f3e/00155752800-e1/00155752800-e1.jpg",
+    "color": "Yellow",
+    "thumbnails": [
+      "https://static.zara.net/assets/public/84a7/b60d/84dd48c3867a/479f444f102a/04027400753-e1/04027400753-e1.jpg",
+      "https://static.zara.net/assets/public/83e2/f640/54a4433085e4/991d22119d56/04416226800-e1/04416226800-e1.jpg"
+    ],
+    "description": "Lightweight running shoes with cushioned soles for maximum comfort."
+  },
+  {
+    "id": 5,
+    "name": "Grey Melange Sweatshirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 999,
+    "originalPrice": 1999,
+    "discount": "50%",
+    "rating": "4.3 ⭐",
+    "image": "https://static.zara.net/assets/public/e461/a421/1c514cf685b1/1390d27165d1/06096350800-e1/06096350800-e1.jpg",
+    "color": "Grey",
+    "thumbnails": [
+      "https://static.zara.net/assets/public/26ca/6e60/78a442b7a4c1/0be9d5e1c7eb/08281104800-a1/08281104800-a1.jpg"
+    ],
+    "description": "Cozy cotton-blend sweatshirt perfect for outdoor morning drills."
+  },
+  {
+    "id": 6,
+    "name": "Olive Green Cargo Shorts",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 899,
+    "originalPrice": 1799,
+    "discount": "50%",
+    "rating": "4.1 ⭐",
+    "image": "https://static.zara.net/assets/public/e409/1d51/6a3540ee9e50/a4b935af1ede/02949350800-e1/02949350800-e1.jpg",
+    "color": "Olive",
+    "thumbnails": [
+      "https://static.zara.net/assets/public/e409/1d51/6a3540ee9e50/a4b935af1ede/02949350800-e1/02949350800-e1.jpg"
+    ],
+    "description": "Durable cargo shorts designed for trekking and outdoor adventures."
+  },
+  {
+    "id": 7,
+    "name": "White Compression Top",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 649,
+    "originalPrice": 1299,
+    "discount": "50%",
+    "rating": "4.7 ⭐",
+    "image": "https://static.zara.net/assets/public/c66d/4105/05ae461187b6/43ce9267436d/03046540711-e1/03046540711-e1.jpg",
+    "color": "White",
+    "thumbnails": ["/img/t-shirt/white-comp2.jpeg"],
+    "description": "Skin-tight compression wear to improve blood flow during workouts."
+  },
+  {
+    "id": 8,
+    "name": "Navy Blue Windbreaker",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 1899,
+    "originalPrice": 3999,
+    "discount": "52%",
+    "rating": "4.4 ⭐",
+    "image": "https://static.zara.net/assets/public/208c/1b2f/57bd4fe9b6be/ef40978e0b03/00761810898-e1/00761810898-e1.jpg",
+    "color": "Navy",
+    "thumbnails": ["/img/outerwear/navy2.jpeg", "/img/outerwear/navy3.jpeg"],
+    "description": "Water-resistant windbreaker with a packable hood."
+  },
+  {
+    "id": 9,
+    "name": "Charcoal Gym Vest",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 499,
+    "originalPrice": 999,
+    "discount": "50%",
+    "rating": "4.2 ⭐",
+    "image": "https://static.zara.net/assets/public/f84f/37ee/dd8740b5ad25/68a60853247f/05585444427-e1/05585444427-e1.jpg",
+    "color": "Charcoal",
+    "thumbnails": ["/img/vests/charcoal2.jpeg"],
+    "description": "Deep-cut gym vest for unrestricted movement during lifting."
+  },
+  {
+    "id": 10,
+    "name": "Electric Purple Yoga Leggings",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 1199,
+    "originalPrice": 2499,
+    "discount": "52%",
+    "rating": "4.8 ⭐",
+    "image": "https://static.zara.net/assets/public/eb75/4146/22ec459186bb/33cf4c478f7c/08574801710-e1/08574801710-e1.jpg",
+    "color": "Purple",
+    "thumbnails": ["/img/women/purple-leg2.jpeg"],
+    "description": "High-waisted, squat-proof leggings with 4-way stretch."
+  },
+  {
+    "id": 11,
+    "name": "Teal Training Hoodie",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 1499,
+    "originalPrice": 2999,
+    "discount": "50%",
+    "rating": "4.5 ⭐",
+    "image": "https://static.zara.net/assets/public/90ef/dfef/c1b248aba921/0275bd2d5756/05127200716-e1/05127200716-e1.jpg",
+    "color": "Teal",
+    "thumbnails": ["/img/winter/teal2.jpeg"],
+    "description": "Full-zip training hoodie with moisture-wicking technology."
+  },
+  {
+    "id": 12,
+    "name": "Slate Grey Track Pants",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 1099,
+    "originalPrice": 2199,
+    "discount": "50%",
+    "rating": "4.3 ⭐",
+    "image": "https://static.zara.net/assets/public/44d2/7dfd/5e894b9aa086/264daf7febf9/03918205514-e1/03918205514-e1.jpg",
+    "color": "Grey",
+    "thumbnails": ["/img/bottoms/slate2.jpeg"],
+    "description": "Lightweight track pants for everyday fitness routines."
+  },
+  {
+    "id": 13,
+    "name": "Crimson Sports Bra",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 899,
+    "originalPrice": 1899,
+    "discount": "53%",
+    "rating": "4.6 ⭐",
+    "image": "https://static.zara.net/assets/public/7be9/c377/8d3946508947/6095e2a34682/00526310401-e1/00526310401-e1.jpg",
+    "color": "Red",
+    "thumbnails": ["/img/women/bra2.jpeg"],
+    "description": "Medium-impact sports bra with racerback design for support."
+  },
+  {
+    "id": 14,
+    "name": "Midnight Black Duffel Bag",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 1599,
+    "originalPrice": 3200,
+    "discount": "50%",
+    "rating": "4.7 ⭐",
+    "image": "https://static.zara.net/assets/public/7b12/8cec/16de4f57aa40/50798474f0d6/05755325800-e1/05755325800-e1.jpg",
+    "color": "Black",
+    "thumbnails": ["/img/acc/bag2.jpeg"],
+    "description": "Spacious gym bag with a separate shoe compartment."
+  },
+  {
+    "id": 15,
+    "name": "Cyan Blue Swim Trunks",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 699,
+    "originalPrice": 1499,
+    "discount": "53%",
+    "rating": "4.0 ⭐",
+    "image": "https://static.zara.net/assets/public/991e/440a/c9d342dfaeb6/f1836f6b0188/05070702700-e1/05070702700-e1.jpg",
+    "color": "Blue",
+    "thumbnails": ["/img/swim/cyan2.jpeg"],
+    "description": "Quick-dry chlorine-resistant trunks for the pool."
+  },
+  {
+    "id": 16,
+    "name": "Mustard Yellow Polo",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 799,
+    "originalPrice": 1599,
+    "discount": "50%",
+    "rating": "4.2 ⭐",
+    "image": "https://static.zara.net/assets/public/feb4/791e/be9d4acea3ec/0e9dee7611ba/05827373802-e1/05827373802-e1.jpg",
+    "color": "Yellow",
+    "thumbnails": ["/img/t-shirt/mustard2.jpeg"],
+    "description": "Athletic fit polo shirt for a smart-casual sports look."
+  },
+  {
+    "id": 17,
+    "name": "Forest Green Puffer Jacket",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 2999,
+    "originalPrice": 5999,
+    "discount": "50%",
+    "rating": "4.8 ⭐",
+    "image": "https://static.zara.net/assets/public/04e1/a4b8/364846739ce4/d546dfbee5e2/08574600778-e1/08574600778-e1.jpg",
+    "color": "Green",
+    "thumbnails": [
+      "https://static.zara.net/assets/public/54ba/7cd0/ac144b31b087/1196ab34cbfb/08574600778-p/08574600778-p.jpg"
+    ],
+    "description": "Insulated winter jacket designed for extreme cold weather."
+  },
+  {
+    "id": 18,
+    "name": "Orange Agility Shorts",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 599,
+    "originalPrice": 1199,
+    "discount": "50%",
+    "rating": "4.3 ⭐",
+    "image": "https://static.zara.net/assets/public/f33a/d4a9/521240d6ae32/2b17e952ada8/00761440803-082-e1/00761440803-082-e1.jpg",
+    "color": "Orange",
+    "thumbnails": ["/img/bottoms/orange2.jpeg"],
+    "description": "Split-seam shorts for maximum range of motion."
+  },
+  {
+    "id": 19,
+    "name": "Pink Mesh Running Top",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 749,
+    "originalPrice": 1499,
+    "discount": "50%",
+    "rating": "4.4 ⭐",
+    "image": "https://static.zara.net/assets/public/57ad/7c5d/02ec4429864f/789f6742e750/01063411052-e1/01063411052-e1.jpg",
+    "color": "Pink",
+    "thumbnails": ["/img/women/pink2.jpeg"],
+    "description": "Highly breathable mesh fabric for long-distance running."
+  },
+  {
+    "id": 20,
+    "name": "Black Wrist Bands",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 199,
+    "originalPrice": 399,
+    "discount": "50%",
+    "rating": "4.5 ⭐",
+    "image": "https://static.zara.net/assets/public/fbae/88f2/ca65464b886a/176f12aa5828/03409340427-e1/03409340427-e1.jpg",
+    "color": "Black",
+    "thumbnails": ["/img/acc/wrist2.jpeg"],
+    "description": "Absorbent cotton wrist bands for sweat management."
+  },
+  {
+    "id": 21,
+    "name": "Maroon Fleece Tracksuit",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 2599,
+    "originalPrice": 5499,
+    "discount": "53%",
+    "rating": "4.6 ⭐",
+    "image": "https://static.zara.net/assets/public/f62e/3efd/025d46a9a8d7/9e653b9169ab/07484390708-e1/07484390708-e1.jpg",
+    "color": "Maroon",
+    "thumbnails": ["/img/sets/maroon2.jpeg"],
+    "description": "Matching fleece set for warmth and athletic style."
+  },
+  {
+    "id": 22,
+    "name": "White Tennis Skirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 999,
+    "originalPrice": 1999,
+    "discount": "50%",
+    "rating": "4.3 ⭐",
+    "image": "https://static.zara.net/assets/public/49f0/19d8/7b7d465ca0e6/64062037985c/03332300401-e1/03332300401-e1.jpg?ts=1753371719848&w=455",
+    "color": "White",
+    "thumbnails": [
+      "https://static.zara.net/assets/public/0ae7/abec/a3254007a216/7ad88ce11dfe/04337999800-e1/04337999800-e1.jpg"
+    ],
+    "description": "Lightweight skirt with built-in inner shorts for tennis."
+  },
+  {
+    "id": 23,
+    "name": "Camo Print Gym Bag",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 1399,
+    "originalPrice": 2799,
+    "discount": "50%",
+    "rating": "4.5 ⭐",
+    "image": "https://static.zara.net/assets/public/122f/9ddd/e0b8441d8aca/633e52db4535/08062330427-e1/08062330427-e1.jpg",
+    "color": "Multi",
+    "thumbnails": ["/img/acc/camo-bag2.jpeg"],
+    "description": "Rugged camo print backpack with laptop sleeve."
+  },
+  {
+    "id": 24,
+    "name": "Cobalt Blue Tank Top",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 449,
+    "originalPrice": 899,
+    "discount": "50%",
+    "rating": "4.1 ⭐",
+    "image": "https://static.zara.net/assets/public/3074/8c07/a93e49498ce8/8490955c0d85/06861693800-e1/06861693800-e1.jpg",
+    "color": "Blue",
+    "thumbnails": ["/img/t-shirt/cobalt2.jpeg"],
+    "description": "Breathable cotton tank top for high-intensity training."
+  },
+  {
+    "id": 25,
+    "name": "Silver Reflective Jacket",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 2199,
+    "originalPrice": 4499,
+    "discount": "51%",
+    "rating": "4.7 ⭐",
+    "image": "https://static.zara.net/assets/public/0f8f/0a35/e56e42b89ee7/7c8c80b815e3/06318356700-e1/06318356700-e1.jpg",
+    "color": "Silver",
+    "thumbnails": ["/img/outerwear/silver2.jpeg"],
+    "description": "Fully reflective jacket for safety during night running."
+  },
+  {
+    "id": 26,
+    "name": "Red Performance T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 749,
+    "originalPrice": 3499,
+    "discount": "50%",
+    "rating": "4.4 ⭐",
+    "image": "https://static.zara.net/assets/public/8684/029c/b9014482b9e1/a19977b3fcd1/20210016999-e1/20210016999-e1.jpg",
+    "color": "Red",
+    "thumbnails": [
+      "/img/t-shirt/red2.jpeg",
+      "/img/t-shirt/red3.jpeg",
+      "/img/t-shirt/red4.jpeg",
+      "/img/t-shirt/red5.jpeg"
+    ],
+    "description": "High-performance tracksuit with Rapid Dry technology."
+  },
+  {
+    "id": 27,
+    "name": "Blue Active T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 799,
+    "originalPrice": 3599,
+    "discount": "55%",
+    "rating": "4.2 ⭐",
+    "image": "https://static.zara.net/assets/public/da58/ae4f/cbb64e949849/4b5576ea0801/20210474999-e2/20210474999-e2.jpg",
+    "color": "Blue",
+    "thumbnails": [
+      "/img/t-shirt/blue2.jpeg",
+      "/img/t-shirt/blue3.jpeg",
+      "/img/t-shirt/blue4.jpeg",
+      "/img/t-shirt/blue5.jpeg"
+    ],
+    "description": "Stay cool and stylish with this quick-dry sports t-shirt."
+  },
+  {
+    "id": 28,
+    "name": "Red Performance T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 749,
+    "originalPrice": 3499,
+    "discount": "50%",
+    "rating": "4.4 ⭐",
+    "image": "https://static.zara.net/assets/public/d2ef/dad8/a1594135b637/b3f059f22e2c/20210721999-e1/20210721999-e1.jpg",
+    "color": "Red",
+    "thumbnails": [
+      "/img/t-shirt/red2.jpeg",
+      "/img/t-shirt/red3.jpeg",
+      "/img/t-shirt/red4.jpeg",
+      "/img/t-shirt/red5.jpeg"
+    ],
+    "description": "High-performance tracksuit with Rapid Dry technology."
+  },
+  {
+    "id": 29,
+    "name": "Blue Active T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 799,
+    "originalPrice": 3599,
+    "discount": "55%",
+    "rating": "4.2 ⭐",
+    "image": "https://static.zara.net/assets/public/67bb/aaea/eda840efbd04/4f88c5a50b3a/12664620700-ult31/12664620700-ult31.jpg",
+    "color": "Blue",
+    "thumbnails": [
+      "/img/t-shirt/blue2.jpeg",
+      "/img/t-shirt/blue3.jpeg",
+      "/img/t-shirt/blue4.jpeg",
+      "/img/t-shirt/blue5.jpeg"
+    ],
+    "description": "Stay cool and stylish with this quick-dry sports t-shirt."
+  },
+  {
+    "id": 30,
+    "name": "Red Performance T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 749,
+    "originalPrice": 3499,
+    "discount": "50%",
+    "rating": "4.4 ⭐",
+    "image": "https://static.zara.net/assets/public/6400/ee15/d8294a0ca33e/14e2b9025d73/00761371800-000-e1/00761371800-000-e1.jpg",
+    "color": "Red",
+    "thumbnails": [
+      "/img/t-shirt/red2.jpeg",
+      "/img/t-shirt/red3.jpeg",
+      "/img/t-shirt/red4.jpeg",
+      "/img/t-shirt/red5.jpeg"
+    ],
+    "description": "High-performance tracksuit with Rapid Dry technology."
+  },
+  {
+    "id": 31,
+    "name": "Blue Active T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 799,
+    "originalPrice": 3599,
+    "discount": "55%",
+    "rating": "4.2 ⭐",
+    "image": "https://static.zara.net/assets/public/a452/9a0d/56a04959948b/b260550ebdcd/00761372800-e1/00761372800-e1.jpg",
+    "color": "Blue",
+    "thumbnails": [
+      "/img/t-shirt/blue2.jpeg",
+      "/img/t-shirt/blue3.jpeg",
+      "/img/t-shirt/blue4.jpeg",
+      "/img/t-shirt/blue5.jpeg"
+    ],
+    "description": "Stay cool and stylish with this quick-dry sports t-shirt."
+  },
+  {
+    "id": 32,
+    "name": "Red Performance T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 749,
+    "originalPrice": 3499,
+    "discount": "50%",
+    "rating": "4.4 ⭐",
+    "image": "https://static.zara.net/assets/public/8aae/845f/dee74a8e8488/bf385b09ee0b/12664620700-e1/12664620700-e1.jpg",
+    "color": "Red",
+    "thumbnails": [
+      "/img/t-shirt/red2.jpeg",
+      "/img/t-shirt/red3.jpeg",
+      "/img/t-shirt/red4.jpeg",
+      "/img/t-shirt/red5.jpeg"
+    ],
+    "description": "High-performance tracksuit with Rapid Dry technology."
+  },
+  {
+    "id": 33,
+    "name": "Blue Active T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 799,
+    "originalPrice": 3599,
+    "discount": "55%",
+    "rating": "4.2 ⭐",
+    "image": "https://static.zara.net/assets/public/57bb/2c61/d3ad4a669400/abd9f8a028e0/08574329711-e1/08574329711-e1.jpg",
+    "color": "Blue",
+    "thumbnails": [
+      "/img/t-shirt/blue2.jpeg",
+      "/img/t-shirt/blue3.jpeg",
+      "/img/t-shirt/blue4.jpeg",
+      "/img/t-shirt/blue5.jpeg"
+    ],
+    "description": "Stay cool and stylish with this quick-dry sports t-shirt."
+  },
+  {
+    "id": 34,
+    "name": "Red Performance T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 749,
+    "originalPrice": 3499,
+    "discount": "50%",
+    "rating": "4.4 ⭐",
+    "image": "https://static.zara.net/assets/public/be1e/4292/55aa45d68c6f/ad619a711631/12700520800-e2/12700520800-e2.jpg",
+    "color": "Red",
+    "thumbnails": [
+      "/img/t-shirt/red2.jpeg",
+      "/img/t-shirt/red3.jpeg",
+      "/img/t-shirt/red4.jpeg",
+      "/img/t-shirt/red5.jpeg"
+    ],
+    "description": "High-performance tracksuit with Rapid Dry technology."
+  },
+  {
+    "id": 35,
+    "name": "Blue Active T-Shirt",
+    "brand": "HRX by Hrithik Roshan",
+    "price": 799,
+    "originalPrice": 3599,
+    "discount": "55%",
+    "rating": "4.2 ⭐",
+    "image": "https://static.zara.net/assets/public/0ac8/e2ea/fb9540448172/15156d033bd3/04365445427-e1/04365445427-e1.jpg",
+    "color": "Blue",
+    "thumbnails": [
+      "/img/t-shirt/blue2.jpeg",
+      "/img/t-shirt/blue3.jpeg",
+      "/img/t-shirt/blue4.jpeg",
+      "/img/t-shirt/blue5.jpeg"
+    ],
+    "description": "Stay cool and stylish with this quick-dry sports t-shirt."
+  }
+]
