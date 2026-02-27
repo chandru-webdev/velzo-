@@ -2,13 +2,18 @@ const sidebar = document.getElementById("sidebar");
 const openSidebar = document.getElementById("openSidebar");
 const closeSidebar = document.getElementById("closeSidebar");
 
-openSidebar.addEventListener("click", () => {
-    sidebar.classList.add("active");
-});
+// sidebar
+if (openSidebar && sidebar) {
+    openSidebar.addEventListener("click", () => {
+        sidebar.classList.add("active");
+    });
+}
 
-closeSidebar.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-});
+if (closeSidebar && sidebar) {
+    closeSidebar.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+    });
+}
 
 // filter button
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,21 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-    // Close when clicking dark area
+    // Close menu
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) closeMenu();
     });
 });
-// --- GLOBAL STATE ---
+// GLOBAL STATE 
 let baseProducts = [];
 let activeColor = "all";
-let maxPriceThreshold = 5000; // Default max from your HTML
+let maxPriceThreshold = 5000; 
 let minRatingThreshold = 0;
 
 const WISHLIST_STORAGE_KEY = 'userWishlist';
 const wishlistBadge = document.getElementById('wishlist-badge');
 
-// --- INITIALIZATION ---
+//INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById("productContainer");
 
@@ -66,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- 1. FILTER VISIBILITY ---
+//  1. FILTER VISIBILITY 
 function setupFilterToggle() {
     const btn = document.getElementById('filterToggleBtn');
     const menu = document.getElementById('filterMenu');
@@ -81,15 +86,20 @@ function setupPriceSlider() {
     const slider = document.getElementById('priceRange');
     const label = document.getElementById('maxPriceLabel');
 
+    // Guard if slider or label not present on the page
+    if (!slider || !label) return;
+
     slider.addEventListener('input', (e) => {
         maxPriceThreshold = parseInt(e.target.value);
         label.innerText = `Max: ₹${maxPriceThreshold}`;
         applyAllFilters();
     });
 }
-// 2. Rating Checkbox Logic (Highest selected value sets the floor)
+// 2. Rating Checkbox Logic 
 function setupRatingFilters() {
     const ratingChecks = document.querySelectorAll('.rating-filter');
+    if (!ratingChecks || ratingChecks.length === 0) return;
+
     ratingChecks.forEach(check => {
         check.addEventListener('change', () => {
             const selected = Array.from(ratingChecks)
@@ -104,6 +114,8 @@ function setupRatingFilters() {
 // 3. Color Radio Logic
 function setupColorRadios() {
     const radios = document.querySelectorAll('input[name="color"]');
+    if (!radios || radios.length === 0) return;
+
     radios.forEach(radio => {
         radio.addEventListener('change', (e) => {
             activeColor = e.target.value;
@@ -119,9 +131,9 @@ function applyAllFilters() {
         const productColor = (p.color || "").toLowerCase();
         const targetColor = activeColor.toLowerCase();
         const colorMatch = (activeColor === "all" || productColor === targetColor);
-        // B. Price Matching (Slider logic: 0 to selected max)
+        // B. Price Matching 
         const priceMatch = p.price <= maxPriceThreshold;
-        // C. Rating Matching (Parsing "4.4 ⭐" to 4.4)
+        // C. Rating Matching 
         const numericRating = parseFloat(p.rating) || 0;
         const ratingMatch = numericRating >= minRatingThreshold;
 
@@ -137,9 +149,9 @@ function loadProducts(file) {
         .then(res => res.json())
         .then(data => {
             baseProducts = data;
-            searchList = data; // Sync search with the same 43 products
+            searchList = data; 
             console.log("Loaded total products:", baseProducts.length);
-            displayProducts(baseProducts); // Display all 43 immediately
+            displayProducts(baseProducts); 
         })
         .catch(err => console.error("Load error:", err));
 }
@@ -234,8 +246,8 @@ function displayProducts(products) {
                 price: Number(p.price),
                 originalPrice: Number(p.originalPrice || p.price),
                 image: p.image || p.imageMain || "img/default.jpg",
-                quantity: 1, 
-                size: "M"   
+                quantity: 1,
+                size: "M"
             };
 
             let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -268,11 +280,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- SEARCH LOGIC ---
 let searchList = [];
 
-fetch("allproducts.json")
+// Use an absolute path so fetch resolves correctly regardless of the current page path
+fetch("/html/allproducts.json")
     .then(res => res.json())
     .then(data => {
         searchList = data;
-    });
+    })
+    .catch(err => console.error("Search list load error:", err));
 
 const searchInput = document.getElementById("searchInput");
 const resultsBox = document.getElementById("searchResults");
@@ -300,9 +314,10 @@ function redirectProduct(name) {
 }
 
 // SEARCH INPUT HANDLER
-if (searchInput) {
+if (searchInput && resultsBox) {
     searchInput.addEventListener("input", () => {
-        const keyword = searchInput.value.toLowerCase();
+        const raw = searchInput.value || "";
+        const keyword = raw.trim().toLowerCase();
         resultsBox.innerHTML = "";
 
         if (!keyword) {
@@ -310,11 +325,12 @@ if (searchInput) {
             return;
         }
 
-        const matched = searchList.filter(item =>
-            item.name.toLowerCase().startsWith(keyword)
+        // Use includes() so substring matches work (not only startsWith)
+        const matched = (searchList || []).filter(item =>
+            item.name && item.name.toLowerCase().includes(keyword)
         );
 
-        if (matched.length === 0) {
+        if (!matched || matched.length === 0) {
             resultsBox.style.display = "none";
             return;
         }
@@ -330,7 +346,16 @@ if (searchInput) {
                 <span>${p.name}</span>
             `;
 
-            box.onclick = () => redirectProduct(p.name);
+            box.onclick = () => {
+                // Save the selected product so the product page can read it (same as product card click)
+                try {
+                    localStorage.setItem('selectedProduct', JSON.stringify(p));
+                } catch (err) {
+                    console.warn('Could not save selectedProduct to localStorage', err);
+                }
+                // Navigate to the product detail page
+                window.location.href = 'shop.html';
+            };
 
             resultsBox.appendChild(box);
         });
@@ -348,9 +373,9 @@ document.addEventListener("click", (e) => {
 
 // login
 
-let userPhone = ''; 
+let userPhone = '';
 let userName = 'User'; // Default name, can be updated
-let loginState = 'loggedOut'; 
+let loginState = 'loggedOut';
 
 // OTP Timer variables
 let otpTimer;
@@ -438,7 +463,7 @@ function initializeLoginLogic() {
     //  Element Selectors (Selecting elements inside the dynamically loaded HTML)
     const placeholder = document.getElementById('profileComponentPlaceholder');
     const profileIcon = document.getElementById('profileLinkPlaceholder');
-    const profileIconInner = document.getElementById('profileIconStarter'); 
+    const profileIconInner = document.getElementById('profileIconStarter');
 
     if (!placeholder || !profileIcon || !profileIconInner) {
         console.error("Missing required placeholders for profile component.");
@@ -736,6 +761,8 @@ function updateCartBadge() {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const badge = document.getElementById("cart-badge");
     const count = cartItems.length;
+    if (!badge) return; // nothing to update on pages without a cart badge
+
     if (count > 0) {
         badge.style.display = "inline-block";
         badge.textContent = count;
@@ -760,49 +787,73 @@ document.addEventListener('click', (e) => {
 });
 // --- NEW: Modal Control and Form Submission Listener ---
 const modalOverlay = document.getElementById('address-modal-overlay');
-const closeBtn = document.getElementById('close-address-modal');
+const closeAddressBtn = document.getElementById('close-address-modal');
 const addressForm = document.getElementById('address-form');
-// Close modal when close button is clicked
-closeBtn.addEventListener('click', () => {
-    modalOverlay.classList.remove('visible');
-});
-// Close modal when clicking outside
-modalOverlay.addEventListener('click', (e) => {
-    if (e.target.id === 'address-modal-overlay') {
+
+if (modalOverlay && closeAddressBtn) {
+    // Close modal when close button is clicked
+    closeAddressBtn.addEventListener('click', () => {
         modalOverlay.classList.remove('visible');
-    }
-});
-// Form Submission Handler
-addressForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    //  Get Address 
-    const addressData = {
-        pincode: document.getElementById('pincode').value,
-    };
-    localStorage.setItem('deliveryAddress', JSON.stringify(addressData));
-    // Hide Address Step and Show Payment Step
-    document.querySelector('.address-form-container').classList.add('hidden');
-    document.getElementById('payment-step').classList.add('active');
-    // Update the Modal Header and Final Amount
-    document.querySelector('.modal-header h2').textContent = 'Finalize Payment';
-    // Calculate and display the grand total here (re-using existing functions)
-    let grandTotal = 0;
-    // To get the actual grand total value from the summary box:
-    const grandTotalElement = document.getElementById('grand-total-amount');
-    if (grandTotalElement) {
-        // Extract the number, removing '₹' and ','
-        grandTotal = parseFloat(grandTotalElement.textContent.replace('₹', '').replace(/,/g, '')) || 0;
-    }
-    document.getElementById('final-amount').textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
-});
+    });
+
+    // Close modal when clicking outside
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target.id === 'address-modal-overlay') {
+            modalOverlay.classList.remove('visible');
+        }
+    });
+}
+
+// Form Submission Handler (guarded)
+if (addressForm) {
+    addressForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        //  Get Address 
+        const pincodeEl = document.getElementById('pincode');
+        const addressData = {
+            pincode: pincodeEl ? pincodeEl.value : ''
+        };
+        localStorage.setItem('deliveryAddress', JSON.stringify(addressData));
+        // Hide Address Step and Show Payment Step
+        const addrContainer = document.querySelector('.address-form-container');
+        if (addrContainer) addrContainer.classList.add('hidden');
+        const paymentStep = document.getElementById('payment-step');
+        if (paymentStep) paymentStep.classList.add('active');
+        // Update the Modal Header and Final Amount
+        const modalHeaderH2 = document.querySelector('.modal-header h2');
+        if (modalHeaderH2) modalHeaderH2.textContent = 'Finalize Payment';
+        // Calculate and display the grand total here (re-using existing functions)
+        let grandTotal = 0;
+        // To get the actual grand total value from the summary box:
+        const grandTotalElement = document.getElementById('grand-total-amount');
+        if (grandTotalElement) {
+            // Extract the number, removing '₹' and ','
+            grandTotal = parseFloat(grandTotalElement.textContent.replace('₹', '').replace(/,/g, '')) || 0;
+        }
+        const finalAmountEl = document.getElementById('final-amount');
+        if (finalAmountEl) finalAmountEl.textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
+    });
+}
 // --- NEW: Add event listener for the final 'PLACE ORDER' button ---
-document.getElementById('placeOrderBtn').addEventListener('click', handlePlaceOrder);
-let selectedMethod = '';
-// Function to handle the visibility of payment details (Online/COD)
+const placeOrderBtn = document.getElementById('placeOrderBtn');
+if (placeOrderBtn) {
+    placeOrderBtn.addEventListener('click', () => {
+        if (typeof window.handlePlaceOrder === 'function') {
+            window.handlePlaceOrder();
+        } else {
+            console.error("handlePlaceOrder is not defined on window.");
+        }
+    });
+}
+window.selectedMethod = '';
+let selectedMethod = ''; // Local reference for use within script.js if needed
+// Update selectedMethod globally when it changes
 function selectPayment(method) {
     // Check the radio button
-    document.getElementById(method).checked = true;
+    const methodRadio = document.getElementById(method);
+    if (methodRadio) methodRadio.checked = true;
     selectedMethod = method;
+    window.selectedMethod = method;
 
     // Manage the detail panels visibility
     const onlinePanel = document.getElementById('online-details');
@@ -810,53 +861,40 @@ function selectPayment(method) {
     const placeOrderBtn = document.getElementById('placeOrderBtn');
 
     if (method === 'online') {
-        onlinePanel.classList.add('active');
-        codPanel.classList.remove('active');
+        if (onlinePanel) onlinePanel.classList.add('active');
+        if (codPanel) codPanel.classList.remove('active');
     } else if (method === 'cod') {
-        onlinePanel.classList.remove('active');
-        codPanel.classList.add('active');
+        if (onlinePanel) onlinePanel.classList.remove('active');
+        if (codPanel) codPanel.classList.add('active');
     }
     // Enable the Place Order button
-    placeOrderBtn.disabled = false;
-}
-// Function to handle the final Place Order button click
-function handlePlaceOrder() {
-    if (selectedMethod === 'online') {
-        // Simple validation for online details
-        const cardNumber = document.getElementById('cardNumber').value;
-        const upiId = document.getElementById('upiId').value;
-        // This is a minimal check; real systems require more complex validation
-        if ((cardNumber.length > 0 && cardNumber.length < 16) || (cardNumber.length === 0 && upiId.length === 0)) {
-            alert(' Please enter valid Card details or a UPI ID.');
-            return;
-        }
-        alert(` Payment Method: Online. Proceeding to process order!`);
-    } else if (selectedMethod === 'cod') {
-        alert(' Payment Method: Cash on Delivery. Order Placed Successfully!');
-    } else {
-        alert(' Please select a payment method.');
-        return;
+    if (placeOrderBtn) placeOrderBtn.disabled = false;
+    // Visually mark the selected payment-option-box
+    try {
+        const boxes = document.querySelectorAll('.payment-option-box');
+        boxes.forEach(box => box.classList.remove('selected'));
+        // Find the box that contains the radio with id === method
+        const selectedBox = Array.from(boxes).find(b => b.querySelector(`#${method}`));
+        if (selectedBox) selectedBox.classList.add('selected');
+    } catch (err) {
+        // no-op if DOM not present
     }
-    // Final success action 
-    // localStorage.removeItem(CART_KEY);
-    document.getElementById('address-modal-overlay').classList.remove('visible');
 }
-then((docRef) => {
-    localStorage.removeItem(CART_KEY);
-    document.getElementById('address-modal-overlay').classList.remove('visible');
-    window.location.href = 'collection.html?id=' + docRef.id;
-})
+window.selectPayment = selectPayment;
 
-const products = [ ];/*json data*/
+const products = [];/*json data*/
 
 // Select DOM elements
 const priceInput = document.getElementById('priceRange');
 const maxPriceLabel = document.getElementById('maxPriceLabel');
 const ratingChecks = document.querySelectorAll('.rating-check');
-const container = document.getElementById('product-container');
+// product grid container: try legacy id 'product-container' then 'product-grid'
+let container = document.getElementById('product-container');
+if (!container) container = document.getElementById('product-grid');
 
 // Function to render products
 function renderProducts(filteredList) {
+    if (!container) return; // Guard: nothing to render on pages without product container
     container.innerHTML = filteredList.map(item => `
         <div class="product-card">
             <img src="${item.image}" alt="${item.name}">
@@ -883,8 +921,56 @@ function applyFilters() {
     });
     renderProducts(filtered);
 }
-// Event Listeners
-priceInput.addEventListener('input', applyFilters);
-ratingChecks.forEach(check => check.addEventListener('change', applyFilters));
-renderProducts(products);// Initial Load
+// Event Listeners (guarded)
+if (priceInput) priceInput.addEventListener('input', applyFilters);
+if (ratingChecks && ratingChecks.length > 0) ratingChecks.forEach(check => check.addEventListener('change', applyFilters));
+// Initial render if the container exists
+if (container) renderProducts(products);
+
+// --- Thumbnail gallery: clicking a small image replaces the main model image ---
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.small-image-container').forEach(container => {
+        const thumbs = Array.from(container.querySelectorAll('img'));
+        if (!thumbs || thumbs.length === 0) return;
+
+        // Find the nearest slide and attempt to locate a main image inside it.
+        const slide = container.closest('.carousel-slide');
+        const mainImg = slide ? slide.querySelector('.main-model-image') : null;
+        const mediaHalf = slide ? slide.querySelector('.media-half') : null;
+
+        // If neither a real <img> nor a media container exists, skip this set
+        if (!mainImg && !mediaHalf) return;
+
+        // Set first thumbnail active by default (optional)
+        thumbs.forEach((t, i) => {
+            t.classList.remove('active-thumb');
+            if (i === 0) t.classList.add('active-thumb');
+            // Click handler
+            t.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = t.getAttribute('data-src') || t.src || t.getAttribute('src');
+                if (!src) return;
+
+                // If a real <img> exists in the slide, swap its src; otherwise update the media-half background.
+                if (mainImg) {
+                    mainImg.src = src;
+                } else if (mediaHalf) {
+                    // Use inline style so CSS background-image rules (like .img2/.img4) are overridden per-slide
+                    mediaHalf.style.backgroundImage = `url('${src}')`;
+                }
+
+                thumbs.forEach(x => x.classList.remove('active-thumb'));
+                t.classList.add('active-thumb');
+            });
+            // Allow keyboard activation
+            t.setAttribute('tabindex', '0');
+            t.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Enter' || ev.key === ' ') {
+                    ev.preventDefault();
+                    t.click();
+                }
+            });
+        });
+    });
+});
 

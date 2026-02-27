@@ -1,17 +1,19 @@
-// 1. Make sure to import the database instance and Firebase tools at the top of your file
 import { db } from './firebaseConfig.js';
 import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 async function handlePlaceOrder() {
+    console.log("handlePlaceOrder triggered");
+    const method = window.selectedMethod || '';
+
     // --- 1. VALIDATION ---
-    if (selectedMethod === 'online') {
+    if (method === 'online') {
         const cardNumber = document.getElementById('cardNumber').value;
         const upiId = document.getElementById('upiId').value;
         if ((cardNumber.length > 0 && cardNumber.length < 16) || (cardNumber.length === 0 && upiId.length === 0)) {
             alert('⚠️ Please enter valid Card details or a UPI ID.');
             return;
         }
-    } else if (selectedMethod === '') {
+    } else if (method === '') {
         alert('⚠️ Please select a payment method.');
         return;
     }
@@ -25,15 +27,17 @@ async function handlePlaceOrder() {
     const orderPayload = {
         items: cart,
         shippingAddress: address,
-        paymentMethod: selectedMethod === 'online' ? 'Online' : 'Cash on Delivery',
+        paymentMethod: method === 'online' ? 'Online' : 'Cash on Delivery',
         amount: grandTotal,
         status: "Placed",
-        createdAt: serverTimestamp() 
+        createdAt: serverTimestamp()
     };
 
-    // --- 3. SEND TO FIREBASE ---
+    console.log("Preparing to send payload:", orderPayload);
+
+    // --- 3. SEND TO FIREBASE FIRESTORE ---
     try {
-        console.log("Connecting to Firebase...");
+        console.log("Connecting to Cloud Firestore...");
 
         const docRef = await addDoc(collection(db, "Orders"), orderPayload);
 
@@ -50,6 +54,9 @@ async function handlePlaceOrder() {
 
     } catch (error) {
         console.error("Firebase Error:", error);
-        alert("❌ Failed to place order. Please check your internet or Firebase permissions.");
+        alert("❌ Failed to place order. Error: " + error.message);
     }
 }
+
+// Expose to window for the event listener in script.js
+window.handlePlaceOrder = handlePlaceOrder;
