@@ -7,6 +7,117 @@
     <title>VELZO</title>
     <link rel="stylesheet" href="../css/style copy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+    --bg-gray: #F5F5F7;
+    --card-bg: #FFFFFF;
+    --text-main: #1D1D1F;
+    --accent-blue: #4B49FF;
+    --border-radius: 18px;
+}
+
+.payment-options-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 30px 20px;
+    background-color: var(--bg-gray);
+    border-radius: 40px; /* High radius for mobile app look */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.title {
+	font-size: 17px;
+	font-weight: 700;
+	margin-bottom: 30px;
+	color: var(--text-main);
+	padding-left: 10px;
+}
+
+.summary-mini {
+	font-size: 14px;
+	color: #666;
+	padding-right: 58px;
+}
+
+#final-amount {
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.payment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Option Card Styles */
+.payment-option-box {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.payment-option-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Visual states for selection */
+.payment-option-box.selected {
+    outline: 2px solid var(--accent-blue);
+}
+
+.label-left {
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+}
+
+.brand-logo {
+    height: 22px;
+}
+
+.brand-logo-small {
+    height: 14px;
+}
+
+.upi-tag {
+    font-size: 10px;
+    font-weight: bold;
+    color: #777;
+    border: 1px solid #ddd;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.icon-blue { color: #3b5998; font-size: 20px; }
+.icon-gray { color: #888; font-size: 20px; }
+
+/* Place Order Button */
+.place-order-btn {
+    width: 100%;
+    margin-top: 40px;
+    background-color: var(--accent-blue);
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.place-order-btn:disabled {
+    background-color: #E0E0E0;
+    color: #A0A0A0;
+    cursor: not-allowed;
+}
+    </style>
 </head>
 
 <body>
@@ -313,12 +424,9 @@
     </section>
     <div id="address-modal-overlay">
         <div id="address-modal-content">
-            <div class="modal-left" style="background-image: url('/img/banner1/home.jpg'); background-size: cover; background-position: center;">
-                <div style="padding:48px 36px; display:flex; align-items:center; height:100%;">
-                    <div>
-                        <h1 style="font-size:28px; color:#061224; margin:0 0 12px 0;">Add an address</h1>
-                        <p style="color:#445569; max-width:280px;">Enter a delivery address where you'd like to receive your order. You can add multiple addresses later.</p>
-                    </div>
+            <div class="modal-left" style="background-image: url('/img/banner1/home.jpg'); background-size: cover; background-position-x: 10px;">
+                <div style="padding:45px 50px; display:flex; align-items:center; height:100%;">
+                    
                 </div>
             </div>
             <div class="modal-right">
@@ -375,44 +483,54 @@
                     </form>
                 </div>
 
-                <div class="payment-options-container" id="payment-step">
-                    <h3>💳 Select Payment Method</h3>
+              <div class="payment-options-container" id="payment-step">
+    <h2 class="title">Choose Payment option</h2>
 
-                    <div class="summary-mini">
-                        Final Payable Amount: <span id="final-amount">₹1698</span>
-                    </div>
+    <div class="summary-mini">
+        Final Payable Amount: <span id="final-amount">₹1698</span>
+    </div>
 
-                    <div class="payment-option-box" onclick="selectPayment('online')">
-                        <div class="label-left"><i class="fa-solid fa-credit-card"></i><label for="online">Online Payment (Card, UPI, Netbanking)</label></div>
-                        <input type="radio" id="online" name="paymentMethod" value="online">
+    <div class="payment-list">
+        <div class="payment-option-box" onclick="selectPayment('online')">
+            <div class="label-left">
+                <span>Debit / Credit card</span>
+            </div>
+            <div class="label-right">
+                <i class="fa-solid fa-credit-card icon-blue"></i>
+            </div>
+        </div>
 
-                        <div id="online-details" class="payment-details">
-                            <p>Enter your card or UPI details:</p>
+        <div class="payment-option-box" onclick="selectPayment('gpay')">
+            <div class="label-left">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="GPay" class="brand-logo">
+            </div>
+           
+        </div>
 
-                            <input type="text" placeholder="Card Number" id="cardNumber" maxlength="19">
-                            <div class="card-details-group">
-                                <input type="text" placeholder="MM/YY" id="expiryDate" maxlength="5">
-                                <input type="password" placeholder="CVV" id="cvv" maxlength="4">
-                            </div>
+        <div class="payment-option-box" onclick="selectPayment('phonepe')">
+            <div class="label-left">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/PhonePe_Logo.svg" alt="PhonePe" class="brand-logo">
+            </div>
+            <!-- <div class="label-right">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo.png/640px-UPI-Logo.png" alt="RuPay/UPI" class="brand-logo-small">
+            </div> -->
+        </div>
 
-                            <p style="margin-top: 15px;">OR</p>
+        <div class="payment-option-box" onclick="selectPayment('cod')">
+            <div class="label-left">
+                <span>Cash on Delivery</span>
+            </div>
+            <div class="label-right">
+                <i class="fa-solid fa-truck-fast icon-gray"></i>
+            </div>
+        </div>
+    </div>
 
-                            <input type="text" placeholder="Enter UPI ID (e.g., yourname@bank)" id="upiId">
-                        </div>
-                    </div>
+    <div id="payment-details-form" class="payment-details">
+        </div>
 
-                    <div class="payment-option-box" onclick="selectPayment('cod')">
-                        <div class="label-left"><i class="fa-solid fa-truck-fast"></i><label for="cod">Cash on Delivery (Pay at the door)</label></div>
-                        <input type="radio" id="cod" name="paymentMethod" value="cod">
-
-                        <div id="cod-details" class="payment-details">
-                            <p>Please keep the exact amount ready to ensure a quick delivery experience.</p>
-                            <p style="font-weight: bold; color: #088178;">COD is available for this address.</p>
-                        </div>
-                    </div>
-
-                    <button class="place-order-btn" id="placeOrderBtn" disabled>PLACE ORDER</button>
-                </div>
+    <button class="place-order-btn" id="placeOrderBtn" disabled>Pay Now</button>
+</div>
             </div>
         </div>
     </div>

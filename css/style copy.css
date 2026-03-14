@@ -1209,14 +1209,14 @@
  }
 
 
- #split-carousel-container {
-     min-height: 100vh;
-     display: flex;
-     align-items: center;
-     padding: 20px;
-     background-color: #fff;
- }
-
+#split-carousel-container {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	background-color: #fff;
+	margin-left: 50px;
+}
  .carousel-slide {
      display: grid;
      grid-template-columns: 1fr 1fr;
@@ -1406,8 +1406,8 @@
 
      /* 2. Adjust Image Display */
      .media-half {
-         max-height: 50vh;
-     }
+	max-height: 29vh;
+}
 
      /* 3. Reduce Font Sizes */
      .slide-details h1 {
@@ -1419,12 +1419,12 @@
      }
 
      /* 4. Small Image Gallery Adjustment */
-     .small-image-container {
-         flex-direction: column;
-         align-items: center;
-         gap: 10px;
-         margin-top: 20px;
-     }
+    .small-image-container {
+	flex-direction: row;
+	align-items: center;
+	margin-top: 20px;
+	justify-content: center;
+}
 
      .small-image-container img {
          width: 100%;
@@ -1473,6 +1473,9 @@
          font-size: 1.5em;
          margin: 1px 0;
      }
+     #split-carousel-container {
+	margin-left: 50px;
+}
  }
 
  #searchResults {
@@ -1484,8 +1487,8 @@
      max-height: 300px;
      overflow-y: auto;
      z-index: 999;
-     top: 75px;
-     left: 600px;
+     top: 100px;
+     left: 590px;
  }
 
  .search-item {
@@ -1518,7 +1521,6 @@
      .cart-summary {
          width: 100%;
      }
-
  }
 
  @media (max-width:839px) {
@@ -1744,6 +1746,7 @@
         order: 2;
         margin-top: 18px;
     }
+    
 }
 
 @media (max-width: 600px) {
@@ -1785,6 +1788,7 @@
     .order-summary-box {
         padding: 16px;
     }
+    
 }
 
 /* Header / Search responsive tweaks for many device presets */
@@ -1848,6 +1852,7 @@
         font-size: 12px;
         padding: 2px 6px;
     }
+   
 }
 
 /* Very small devices - collapse spacing */
@@ -1878,6 +1883,12 @@
          width: 100%;
          margin-bottom: 30px;
      }
+     .sale__card {
+	position: relative;
+	overflow: hidden;
+}
+
+     
  }
 
  .account-actions {
@@ -2125,12 +2136,12 @@
  }
 
 
- .section__container {
-     max-width: var(--max-width);
-     margin: auto;
-     padding: 3rem 2.5rem 2rem 3.5rem;
-     background-color: white;
- }
+.section__container {
+	max-width: var(--max-width);
+	margin: auto;
+	padding: 3rem 2rem 2rem 2.7rem;
+	background-color: white;
+}
 
  .section__title {
      padding-bottom: 0.5rem;
@@ -2400,14 +2411,18 @@
          padding: 10px;
      }
 
-     #split-carousel-container {
-         min-height: auto;
-     }
+    #split-carousel-container {
+	min-height: auto;
+	margin-left: 0px;
+}
  }
 
  @media (width < 600px) {
 
-
+#split-carousel-container {
+	min-height: auto;
+	margin-left: 0px;
+}
      .sale__grid {
          grid-template-columns: repeat(1, 1fr);
      }
@@ -2438,19 +2453,21 @@
      }
  }
 
+ 
  .sidebar {
-     position: fixed;
-     top: 0;
-     left: -280px;
-     width: 280px;
-     height: 100vh;
-     background: black;
-     color: white;
-     padding: 20px;
-     transition: 0.4s;
-     z-index: 9999;
-     overflow-y: auto;
- }
+	position: fixed;
+	top: 0;
+	left: -280px;
+	width: 280px;
+	height: 100vh;
+	background-image: url(/img/banner1/small-18.jpg);
+	background-position: -37px;
+	color: white;
+	padding: 20px;
+	transition: 0.4s;
+	z-index: 9999;
+	overflow-y: auto;
+}
 
  .sidebar.active {
      left: 0;
@@ -2469,8 +2486,14 @@
  }
 
  .sidebar-menu li a:hover {
-     color: gold;
- }
+	color: #0a0a0a;
+	border: 1px solid rgba(255,255,255,0.3);
+	padding: 10px 20px;
+	background: rgba(255,255,255,0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 8px;
+	transition: all 0.5s ease;
+}
 
  .menu-btn {
      font-size: 25px;
@@ -4062,17 +4085,18 @@
      gap: 20px;
  }
 
- .pro img {
-     width: 95%;
-     height: max-content;
-     display: block;
- }
+.pro img {
+	width: 95%;
+	height: max-content;
+	display: block;
+}
 
- .pro {
-     position: relative;
-     padding: 8px 0 5px 10px;
-     height: 375px;
- }
+.pro {
+	position: relative;
+	padding: 8px 0 5px 10px;
+	height: 375px;
+	width: 220px;
+}
 
  .pro:hover {
      border: 1px solid #ccc;
@@ -4126,6 +4150,19 @@
      #searchResults {
 	margin-top: -55px;
 }
+ .sale__title {
+	font-size: 1rem;
+	font-weight: 600;
+}
+.sale__title span {
+	font-size: 1.7rem;
+}
+.sale__card {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin-left: 15px;
+}
 /* Velzo logo font styling */
 .macy-logo,
 .footer-logo {
@@ -4148,6 +4185,9 @@ img {
     display: block;
 }
 
+.big-img{
+        margin-left: 20px;
+    }
 /* Product card images: fixed aspect ratio and cover behavior for consistent cards */
 .product-image,
 .pro img,

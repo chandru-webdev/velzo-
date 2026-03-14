@@ -974,3 +974,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function selectPayment(method) {
+    // Remove selected class from all
+    document.querySelectorAll('.payment-option-box').forEach(box => {
+        box.classList.remove('selected');
+    });
+    
+    // Add selected class to the clicked one
+    event.currentTarget.classList.add('selected');
+    
+    // Enable button
+    const btn = document.getElementById('placeOrderBtn');
+    btn.disabled = false;
+    btn.innerText = method === 'cod' ? 'Confirm Order' : 'Pay Now';
+}
