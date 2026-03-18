@@ -1,8 +1,8 @@
 # Velzo
 
-Live Demo: https://velzo-three.vercel.app/html/index.html
+🔗 Live Demo: https://velzo-three.vercel.app/html/index.html
 
-## 📌 Overview
+🔗 Overview
 
 Velzo is a **fashion e-commerce landing website** built with HTML/CSS/JS showcasing collections, styles, and seasonal fashion products.  
 The goal of the project is to create a responsive UI for a modern streetwear store.
