@@ -4041,7 +4041,7 @@
      display: grid;
      grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
      gap: 12px;
-     max-width: 200px;
+     max-width: 400px;
  }
 
  .swatch-btn {
@@ -4054,15 +4054,15 @@
  }
 
  /* The Circle */
- .swatch {
-     display: block;
-     width: 20px;
-     height: 20px;
-     border-radius: 50%;
-     transition: all 0.2s ease-in-out;
-     border: 1px solid rgba(0, 0, 0, 0.05);
-     position: relative;
- }
+.swatch {
+	display: block;
+	width: 30px;
+	height: 30px;
+	border-radius: 0;
+	transition: all 0.2s ease-in-out;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	position: relative;
+}
 
  .all-option {
      background: conic-gradient(red, yellow, green, blue, purple, red);
@@ -4081,7 +4081,7 @@
  #productContainer {
      flex-grow: 1;
      display: grid;
-     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
      gap: 20px;
  }
 
@@ -4104,7 +4104,7 @@
 
  .star {
      position: absolute;
-     top: 270px;
+     top: 210px;
      left: 15px;
      background: transparent;
      padding: 2px 6px;
@@ -4195,7 +4195,6 @@ img {
     width: 100%;
     height: 240px; /* adjust as needed */
     object-fit: cover;
-    border-radius: 6px;
 }
 
 /* Smaller thumbnails / search result images */
@@ -4332,7 +4331,7 @@ img {
      }
 
      .pro {
-         height: 282px;
+         height: 315px;
      }
 
      .price {
@@ -4343,9 +4342,17 @@ img {
      #productContainer {
          flex-grow: 1;
          display: grid;
-         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
      }
  }
+
+@media (min-width: 669px) and (max-width: 1024px) {
+    #productContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
 
 /* High-Fashion Contact Section Styling */
 .section__container {
