@@ -90,6 +90,7 @@
  #banner button:hover {
      background: #088178;
      color: #fff;
+     padding: 6px;
  }
 
  #sm-banner .banner-box {
@@ -133,11 +134,13 @@
      font-size: 24px;
      font-weight: 500;
      padding-bottom: 15px;
+     padding-left: 6px;
  }
 
  #sm-banner .banner-box:hover button {
      background: #088178;
      border: 1px solid #088178;
+     padding: 6px;
  }
 
  #banner3 {
@@ -4104,7 +4107,7 @@
 
  .star {
      position: absolute;
-     top: 210px;
+     top: 273px;
      left: 15px;
      background: transparent;
      padding: 2px 6px;
