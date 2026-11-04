@@ -1,4 +1,4 @@
-# Velzo — Fashion E-Commerce Website
+# Velzo — Fashion E-Commerce Website  [Pending project]
 
 A modern, responsive fashion e-commerce website designed to showcase contemporary styles, curated collections, and seasonal fashion trends.
 
