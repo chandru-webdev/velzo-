@@ -12,7 +12,7 @@ The website is currently a work in progress, with ongoing improvements to respon
 
 ## ✨ Features
 
-- **Home Section** — Highlights featured products and fashion trends.
+- **Home Section** — Highlights featured products and fashion trends.    
 - **Collections** — Showcases curated fashion collections.
 - **Wedding Collection** — Dedicated showcase for wedding-inspired styles.
 - **Winter Wear** — Seasonal winter fashion collection.
